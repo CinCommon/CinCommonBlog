@@ -14,18 +14,13 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd  
         http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.0.xsd  
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">    
-
-	
-	
 	<mvc:annotation-driven/>
-	
 	<mvc:resources mapping="/static/**" location="/static/"/>
-
 	<!-- 视图解析器 -->
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/" />
-		<property name="suffix" value=".jsp"></property>
+		<property name="suffix" value=".jsp"/>
 	</bean>
 	
 	<bean id="multipartResolver"
