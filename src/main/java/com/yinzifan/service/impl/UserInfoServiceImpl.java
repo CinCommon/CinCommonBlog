@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import com.yinzifan.dao.UserInfoDao;
 import com.yinzifan.entity.UserInfoEntity;
 import com.yinzifan.service.UserInfoService;
-@Service
+@Service("userInfoService")
 public class UserInfoServiceImpl implements UserInfoService{
 
 	@Autowired
@@ -19,6 +19,11 @@ public class UserInfoServiceImpl implements UserInfoService{
 	@Override
 	public UserInfoEntity queryUserInfoByUserName(String userName) {
 		return userInfoDao.queryUserInfoByUserName(userName);
+	}
+
+	@Override
+	public UserInfoEntity queryUserInfoDefault() {
+		return userInfoDao.queryUserInfoDefault();
 	}
 
 }

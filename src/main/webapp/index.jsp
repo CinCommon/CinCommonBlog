@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -14,7 +15,7 @@
 	src="${pageContext.request.contextPath}/static/bootstrap3/js/jquery-1.11.2.min.js"></script>
 <script
 	src="${pageContext.request.contextPath}/static/bootstrap3/js/bootstrap.min.js"></script>
-<title>博主主页</title>
+<title>主页</title>
 <style type="text/css">
 body {
 	padding-top: 10px;
@@ -230,22 +231,10 @@ body {
 					</div>
 					<div class="datas">
 						<ul>
-
-							<li><span><a href="http://www.java1234.com/"
-									target="_blank">Java知识分享网</a></span></li>
-
-							<li><span><a href="http://pan.java1234.com/"
-									target="_blank">百度云搜索引擎</a></span></li>
-
-							<li><span><a href="http://www.easyicon.net/"
-									target="_blank">小图标下载</a></span></li>
-
-							<li><span><a href="http://tieba.baidu.com/f?kw=java"
-									target="_blank">Java贴吧</a></span></li>
-
-							<li><span><a href="http://www.uugai.com/"
-									target="_blank">免费logo在线制作</a></span></li>
-
+						<c:forEach var="link" items="${links }"> <!-- EL表达式引号里面千万不能手贱加空格!!!! -->
+							<li><span><a href="${link.linkUrl }"
+									target="_blank">${link.linkName }</a></span></li>
+						</c:forEach>
 						</ul>
 					</div>
 				</div>

@@ -8,4 +8,5 @@ import com.yinzifan.entity.UserInfoEntity;
 */
 public interface UserInfoService {
 	public UserInfoEntity queryUserInfoByUserName(String userName);
+	public UserInfoEntity queryUserInfoDefault();
 }

@@ -15,4 +15,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="queryUserInfoByUserName" parameterType="String" resultMap="UserInfoResult">
 		SELECT * FROM t_userinfo WHERE userName=#{userName}
 	</select>
+	<select id="queryUserInfoDefault" resultMap="UserInfoResult">
+		SELECT * FROM t_userinfo WHERE 1=1
+	</select>
 </mapper> 
