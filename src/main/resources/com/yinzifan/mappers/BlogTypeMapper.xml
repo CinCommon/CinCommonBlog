@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 
+	   `id` int(11) NOT NULL AUTO_INCREMENT,
+   `typeName` varchar(30) DEFAULT NULL,
+   `typeOrder` int(3) DEFAULT NULL,
+	
+ -->
+<mapper namespace="com.yinzifan.dao.BlogTypeDao">
+	<resultMap type="BlogTypeEntity" id="BlogTypeResult">
+		<result property="id" column="id"/>
+		<result property="typeName" column="typeName"/>
+		<result property="typeOrder" column="typeOrder"/>
+		<!-- <association property=""></association> -->
+	</resultMap>
+	<select id="countCate" resultMap="BlogTypeResult">
+		SELECT 
+			bt.id, bt.typeName, COUNT(*) AS blogCounts 
+		FROM 
+			t_blogtype bt 
+		LEFT JOIN 
+			t_bloginfo bi 
+		ON 
+			bi.typeId=bt.id 
+		GROUP BY 
+			bt.id 
+		ORDER BY 
+			bt.typeOrder
+	</select>
+</mapper> 

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- `id` int(11) NOT NULL AUTO_INCREMENT, `title` varchar(200) DEFAULT NULL, 
+	`summary` varchar(400) DEFAULT NULL, `releaseDate` datetime DEFAULT NULL, 
+	`clickCount` int(11) DEFAULT NULL, `replyCount` int(11) DEFAULT NULL, `content` 
+	text, `typeId` int(11) DEFAULT NULL, `keyword` varchar(200) DEFAULT NULL, -->
+<mapper namespace="com.yinzifan.dao.BlogInfoDao">
+	<resultMap type="BlogInfoEntity" id="BlogInfoResult">
+		<result property="id" column="id" />
+		<result property="title" column="title" />
+		<result property="summary" column="summary" />
+		<result property="releaseDate" column="releaseDate" />
+		<result property="clickCount" column="clickCount" />
+		<result property="replyCount" column="replyCount" />
+		<result property="content" column="content" />
+		<result property="typeId" column="typeId" />
+		<result property="keyword" column="keyword" />
+
+	</resultMap>
+	<select id="countCate" resultMap="BlogInfoResult">
+		SELECT
+			DATE_FORMAT(bi.releaseDate, '%Y-%m') AS formatDate, 
+			COUNT(*) AS 	countByDate 
+		FROM 
+			t_bloginfo AS bi 
+		GROUP BY formatDate
+		ORDER BY formatDate DESC
+	</select>
+</mapper> 

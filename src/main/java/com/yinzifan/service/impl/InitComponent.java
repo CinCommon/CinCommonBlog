@@ -13,8 +13,12 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
+import com.yinzifan.entity.BlogInfoEntity;
+import com.yinzifan.entity.BlogTypeEntity;
 import com.yinzifan.entity.LinkEntity;
 import com.yinzifan.entity.UserInfoEntity;
+import com.yinzifan.service.BlogInfoService;
+import com.yinzifan.service.BlogTypeService;
 import com.yinzifan.service.LinkService;
 import com.yinzifan.service.UserInfoService;
 
@@ -35,14 +39,29 @@ public class InitComponent implements
 	@Override
 	public void contextInitialized(ServletContextEvent sce) {
 		ServletContext servletContext = sce.getServletContext();
+		/**
+		 * get User info
+		 */
 		UserInfoService userInfoService = applicationContext.getBean("userInfoService", UserInfoService.class);
 		UserInfoEntity userInfo = userInfoService.queryUserInfoDefault();
 		userInfo.setPassword(null);
 		servletContext.setAttribute("loginUser", userInfo);
+		/**
+		 * get Link info
+		 */
 		LinkService linkService = applicationContext.getBean("linkService",LinkService.class);
 		List<LinkEntity> links = linkService.query(null);
 		LOGGER.debug("getLinkEntities: {}" , links.toString());
 		servletContext.setAttribute("links", links );
+		/**
+		 * get User info
+		 */
+		BlogInfoService blogInfoService = applicationContext.getBean("blogInfoService", BlogInfoService.class);
+		List<BlogInfoEntity> blogInfoEntites= blogInfoService.countCate();
+		servletContext.setAttribute("blogInfoEntites", blogInfoEntites);
+		BlogTypeService blogTypeService = applicationContext.getBean("blogTypeService", BlogTypeService.class);
+		List<BlogTypeEntity> blogTypeEntites= blogTypeService.countCate();
+		servletContext.setAttribute("blogTypeEntites", blogTypeEntites);
 	}
 	@Override
 	public void contextDestroyed(ServletContextEvent sce) {
