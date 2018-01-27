@@ -10,4 +10,5 @@ import com.yinzifan.entity.BlogTypeEntity;
 */
 public interface BlogTypeDao {
 	public List<BlogTypeEntity> countCate(); 
+	public BlogTypeEntity queryBlogTypeById(Integer id);
 }

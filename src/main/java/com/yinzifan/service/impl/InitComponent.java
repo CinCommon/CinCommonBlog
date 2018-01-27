@@ -33,7 +33,7 @@ public class InitComponent implements
 	private static final Logger LOGGER = LoggerFactory.getLogger(InitComponent.class);
 	@Override
 	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-		this.applicationContext = applicationContext;
+		InitComponent.applicationContext = applicationContext;
 	}
 
 	@Override

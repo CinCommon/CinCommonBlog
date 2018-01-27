@@ -29,4 +29,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		ORDER BY 
 			bt.typeOrder
 	</select>
+	<select id="queryBlogTypeById" parameterType="Integer" resultMap="BlogTypeResult">
+		select * from t_blogtype where id=#{id}
+	</select>
 </mapper> 

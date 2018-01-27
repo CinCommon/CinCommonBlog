@@ -1,6 +1,7 @@
 package com.yinzifan.service.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,16 @@ public class BlogInfoServiceImpl  implements BlogInfoService{
 	@Override
 	public List<BlogInfoEntity> countCate() {
 		return blogInfoDao.countCate();
+	}
+
+	@Override
+	public List<BlogInfoEntity> queryPageBlog(Map<String, Object> map) {
+		return blogInfoDao.queryPageBlog(map);
+	}
+
+	@Override
+	public Long queryPageTotal(Map<String, Object> map) {
+		return blogInfoDao.queryPageTotal(map);
 	} 
 
 }

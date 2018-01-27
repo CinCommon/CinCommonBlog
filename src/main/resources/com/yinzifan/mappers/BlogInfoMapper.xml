@@ -15,9 +15,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="clickCount" column="clickCount" />
 		<result property="replyCount" column="replyCount" />
 		<result property="content" column="content" />
-		<result property="typeId" column="typeId" />
+		<!-- <result property="typeId" column="typeId" /> -->
 		<result property="keyword" column="keyword" />
-
+		<association property="blogType" column="typeId" select="com.yinzifan.dao.BlogTypeDao.queryBlogTypeById"></association>
 	</resultMap>
 	<select id="countCate" resultMap="BlogInfoResult">
 		SELECT
@@ -28,4 +28,33 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		GROUP BY formatDate
 		ORDER BY formatDate DESC
 	</select>
+
+		<select id="queryPageBlog" parameterType="Map" resultMap="BlogInfoResult">
+		select * from t_bloginfo
+		<where>
+			<if test="typeId!=null and typeId!='' ">
+				and typeId=#{typeId}
+			</if>
+			<if test="formatDate!=null and formatDate!='' ">
+				and DATE_FORMAT(releaseDate,'%Y-%m')=#{formatDate}
+			</if>
+		</where>
+		order by releaseDate desc
+		<if test="start!=null and size!=null">
+			limit #{start},#{size}
+		</if>
+	</select>
+	
+	<select id="queryPageTotal" resultType="Long" parameterType="Map">
+		select count(*) from t_bloginfo
+		<where>
+			<if test="typeId!=null and typeId!='' ">
+				and typeId=#{typeId}
+			</if>
+			<if test="formatDate!=null and formatDate!='' ">
+				and DATE_FORMAT(releaseDate,'%Y-%m')=#{formatDate}
+			</if>
+		</where>
+	</select>
+	
 </mapper> 

@@ -22,6 +22,10 @@ public class BlogTypeServiceImpl implements BlogTypeService {
 	public List<BlogTypeEntity> countCate() {
 		return blogTypeDao.countCate();
 	}
+	@Override
+	public BlogTypeEntity queryBlogTypeById(Integer id) {
+		return blogTypeDao.queryBlogTypeById(id);
+	}
 
 	
 }
