@@ -27,7 +27,7 @@
 						<div class="form-group">
 							<input type="text" class="form-control" placeholder="请输入...">
 						</div>
-						<button type="submit" class="btn btn-default">Submit</button>
+						<button onclick="javascript: alert('别点了, 这个功能是骗你的');" type="submit" class="btn btn-default">查找</button>
 					</form>
 				</div>
 			</div>
