@@ -33,5 +33,15 @@ public class BlogInfoServiceImpl  implements BlogInfoService{
 	public Long queryPageTotal(Map<String, Object> map) {
 		return blogInfoDao.queryPageTotal(map);
 	} 
+	
+	@Override
+	public BlogInfoEntity queryBlogInfoById(Integer id) {
+		return blogInfoDao.queryBlogInfoById(id);
+	}
+
+	@Override
+	public void updateBlogInfo(BlogInfoEntity entity) {
+		blogInfoDao.updateBlogInfo(entity);
+	}
 
 }

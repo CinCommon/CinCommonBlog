@@ -13,10 +13,9 @@
 		<div class="datas">
 			<ul>
 				<c:forEach items="${blogList }" var="blogInfoEntity">
-					<li style="margin-bottom: 30px"><span class="date"><a
-							href="#"><fmt:formatDate
+					<li style="margin-bottom: 30px"><span class="date"><fmt:formatDate
 									value="${blogInfoEntity.releaseDate }" type="date"
-									pattern="yyyy/MM" /></a></span> <span class="title"><a href="#">${blogInfoEntity.title }</a></span>
+									pattern="yyyy/MM" /></span> <span class="title"><a href="${pageContext.request.contextPath }/articles/${blogInfoEntity.id}.html">${blogInfoEntity.title }</a></span>
 						<span class="summary">摘要:${blogInfoEntity.summary }...</span>
 						<div class="row">
 							<div class="col-xs-6 col-md-3">

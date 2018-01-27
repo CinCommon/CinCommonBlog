@@ -17,4 +17,7 @@ public interface BlogInfoDao {
 	
 	public Long queryPageTotal(Map<String, Object> map);
 	
+    public BlogInfoEntity queryBlogInfoById(Integer id);
+	
+	public void updateBlogInfo(BlogInfoEntity entity);
 }

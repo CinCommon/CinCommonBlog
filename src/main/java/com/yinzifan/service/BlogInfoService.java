@@ -15,4 +15,8 @@ public interface BlogInfoService {
 	public List<BlogInfoEntity> queryPageBlog(Map<String, Object> map);
 
 	public Long queryPageTotal(Map<String, Object> map);
+	
+	public BlogInfoEntity queryBlogInfoById(Integer id);
+	
+	public void updateBlogInfo(BlogInfoEntity entity);
 }

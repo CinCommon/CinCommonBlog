@@ -13,7 +13,7 @@
 				关于本站
 			</h3><span class="label label-default">v0.1</span>
 			<div>
-				本站源码托管于<a href="#" class="glyphicon glyphicon-link">这里</a>&nbsp;欢迎各位
+				本站源码托管于<a href="https://gitee.com/CinCommon/CinCommonBlog.git" class="glyphicon glyphicon-link">这里</a>&nbsp;欢迎各位
 				<button type="button" class="btn btn-default btn-sm">
 					<span class=" glyphicon glyphicon-star">Star</span>
 				</button>
