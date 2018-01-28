@@ -18,13 +18,16 @@
 			<h2>${blogDetails.title }</h2>
 			<div>
 				<fmt:formatDate value="${blogDetails.releaseDate }" type="date"
-					pattern="yyyy/MM/dd HH:mm" />
+					pattern="[yyyy/MM/dd HH:mm]" />
 				<small>类别: ${blogDetails.blogType.typeName }</small><small
 					class="blog-detail-small"> 阅读(${blogDetails.clickCount })</small> <small
 					class="blog-detail-small">评论(${blogDetails.replyCount })</small>
 			</div>
+			<c:if test="${blogDetails.userInfo != null || blogDetails.userInfo !=''}">
+				<div>作者: ${blogDetails.userInfo.userName }</div>
+			</c:if>
 			<!-- JiaThis Button BEGIN -->
-		<div class="jiathis_style blog-title">
+		<div class="blog-title jiathis_style">
 			<a class="jiathis_button_tsina"></a> <a class="jiathis_button_tqq"></a>
 			<a class="jiathis_button_weixin"></a> <a class="jiathis_button_fb"></a>
 			<a class="jiathis_button_twitter"></a> <a

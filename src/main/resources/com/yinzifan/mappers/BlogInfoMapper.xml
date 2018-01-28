@@ -18,7 +18,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<!-- <result property="typeId" column="typeId" /> -->
 		<result property="keyword" column="keyword" />
 		<association property="blogType" column="typeId" select="com.yinzifan.dao.BlogTypeDao.queryBlogTypeById"></association>
+		<association property="userInfo" column="authorId" select="com.yinzifan.dao.UserInfoDao.queryUserInfoById"></association>
 	</resultMap>
+	<insert id="insertBlog" parameterType="BlogInfoEntity">
+		INSERT INTO t_bloginfo VALUES(null,#{title},#{summary},now(),0,0,#{content},#{blogType.id},#{keyword}, #{userInfo.id})
+	</insert>
+	
 	<select id="queryBlogInfoById" resultMap="BlogInfoResult" parameterType="Integer">
 		SELECT * FROM t_bloginfo WHERE id = #{id};
 	</select>	

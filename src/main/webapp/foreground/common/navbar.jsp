@@ -21,6 +21,7 @@
 				<ul class="nav navbar-nav">
 					<li><a href="javascript: alert('不行')">申请成为博主</a></li><!-- class="active" -->
 					<li><a href="${pageContext.request.contextPath }/navbar_content/about.html">关于本站</a></li>
+					<li><a href="#">没想好这里放什么</a></li>
 				</ul>
 				<div style="float: right;">
 					<form class="navbar-form navbar-left">

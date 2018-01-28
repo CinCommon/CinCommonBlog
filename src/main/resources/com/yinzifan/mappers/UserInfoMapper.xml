@@ -12,6 +12,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="shortName" column="shortName"/>
 		<result property="whatsup" column="whatsup"/>
 	</resultMap>
+	<select id="queryUserInfoById" parameterType="Integer" resultMap="UserInfoResult">
+		SELECT * FROM t_userinfo WHERE id=#{id}
+	</select>
+	
 	<select id="queryUserInfoByUserName" parameterType="String" resultMap="UserInfoResult">
 		SELECT * FROM t_userinfo WHERE userName=#{userName}
 	</select>

@@ -34,7 +34,7 @@ public class BlogInfoEntity {
 	private Integer replyCount;
 	private String content;
 	private BlogTypeEntity blogType;
-
+	private UserInfoEntity userInfo;
 	// private Integer typeId;
 	private String keyword;
 
@@ -141,4 +141,13 @@ public class BlogInfoEntity {
 	public void setFormatDate(String formatDate) {
 		this.formatDate = formatDate;
 	}
+
+	public UserInfoEntity getUserInfo() {
+		return userInfo;
+	}
+
+	public void setUserInfo(UserInfoEntity userInfo) {
+		this.userInfo = userInfo;
+	}
+
 }

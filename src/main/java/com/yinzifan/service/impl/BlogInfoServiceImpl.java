@@ -44,4 +44,9 @@ public class BlogInfoServiceImpl  implements BlogInfoService{
 		blogInfoDao.updateBlogInfo(entity);
 	}
 
+	@Override
+	public Integer insertBlog(BlogInfoEntity entity) {
+		return blogInfoDao.insertBlog(entity);
+	}
+
 }
