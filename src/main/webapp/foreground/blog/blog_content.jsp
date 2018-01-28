@@ -23,7 +23,7 @@
 					class="blog-detail-small"> 阅读(${blogDetails.clickCount })</small> <small
 					class="blog-detail-small">评论(${blogDetails.replyCount })</small>
 			</div>
-			<c:if test="${blogDetails.userInfo != null || blogDetails.userInfo !=''}">
+			<c:if test="${blogDetails.userInfo.userName != null || blogDetails.userInfo.userName !=''}">
 				<div>作者: ${blogDetails.userInfo.userName }</div>
 			</c:if>
 			<!-- JiaThis Button BEGIN -->
@@ -53,8 +53,34 @@
 			${blogDetails.content } <br />
 		</div>
 		<div>
+		关键字:
 			${blogDetails.keyword } <br />
 		</div>
+		
+		<hr style="border: 1px dotted #00f" />
+		<div><span style= "margin-right: 20px">上一篇:</span>
+		<c:choose  >
+			<c:when test="${lastBlogInfo != null }">
+			<a href="${pageContext.request.contextPath }/articles/${lastBlogInfo.id}.html" >${lastBlogInfo.title }</a>
+			</c:when>
+		<c:otherwise>
+			没有啦!
+		</c:otherwise>
+		</c:choose>
+		</div>
+		<div>
+		<span style= "margin-right: 20px">下一篇:</span>
+		 <c:choose>
+				<c:when test="${nextBlogInfo != null }">
+					<a href="${pageContext.request.contextPath }/articles/${nextBlogInfo.id}.html">${nextBlogInfo.title }</a>
+				</c:when>
+				<c:otherwise>
+			没有啦!
+		</c:otherwise>
+			</c:choose>
+		</div>
+		
+		
 	</div>
 
 

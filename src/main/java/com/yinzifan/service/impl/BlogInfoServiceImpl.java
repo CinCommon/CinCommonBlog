@@ -49,4 +49,14 @@ public class BlogInfoServiceImpl  implements BlogInfoService{
 		return blogInfoDao.insertBlog(entity);
 	}
 
+	@Override
+	public BlogInfoEntity queryNextBlogInfo(Integer id) {
+		return blogInfoDao.queryNextBlogInfo(id);
+	}
+
+	@Override
+	public BlogInfoEntity queryLastBlogInfo(Integer id) {
+		return blogInfoDao.queryLastBlogInfo(id);
+	}
+
 }

@@ -22,4 +22,9 @@ public interface BlogInfoDao {
 	public void updateBlogInfo(BlogInfoEntity entity);
 	
 	public Integer insertBlog(BlogInfoEntity entity);
+	
+	public BlogInfoEntity queryNextBlogInfo(Integer id);
+	
+	public BlogInfoEntity queryLastBlogInfo(Integer id);
+	
 }

@@ -28,7 +28,6 @@
 		var blogTypeId = $("#blogTypeId").combobox("getValue")
 		var content = UE.getEditor('editor').getContent()
 		var keyWord = $("#keyWord").val();
-
 		if (title == null || title == '') {
 			alert("请输入标题！");
 		} else if (blogTypeId == null || blogTypeId == '') {
@@ -43,7 +42,7 @@
 				'summary' : UE.getEditor('editor').getContentTxt().substr(0,
 						155),
 				'keyword' : keyWord,
-				'userInfo.id' : ${loginUserInfo.id },
+				'userInfo.id' : "${loginUserInfo.id }"
 			}, function(result) {
 				if (result.success) {
 					alert("博客发布成功！");
@@ -65,7 +64,7 @@
 </head>
 <body style="margin: 10px">
 
-	<div id="p" class="easyui-panel" title="编写博客" style="padding: 10px">
+	<div id="p" class="easyui-panel" title="写博客" style="padding: 10px">
 		<table cellspacing="20px">
 			<tr>
 				<td>博客标题：</td>

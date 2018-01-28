@@ -33,6 +33,8 @@ public class BlogController {
 
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("blogDetails", entity);
+		mav.addObject("nextBlogInfo", blogInfoService.queryNextBlogInfo(Integer.valueOf(id)));
+		mav.addObject("lastBlogInfo", blogInfoService.queryLastBlogInfo(Integer.valueOf(id)));
 		mav.addObject("mainPage", "foreground/blog/blog_content.jsp");// foreground/blog/blog_content
 		mav.setViewName("mainTemplate");
 		return mav;
