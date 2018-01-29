@@ -9,11 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.alibaba.fastjson.JSONObject;
 import com.yinzifan.entity.BlogInfoEntity;
 import com.yinzifan.service.BlogInfoService;
 import com.yinzifan.util.ResponseUtil;
-
-import net.sf.json.JSONObject;
 
 /**
 * @author Cin

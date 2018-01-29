@@ -40,7 +40,7 @@ public class BlogInfoEntity {
 
 	private String countByDate;
 	private String formatDate;
-	private List<String> images = new ArrayList<>();
+	private List<String> images = new ArrayList<String>();
 	
 	public List<String> getImages() {
 		return images;
