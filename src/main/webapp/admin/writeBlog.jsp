@@ -20,7 +20,6 @@
 	src="${pageContext.request.contextPath}/static/ueditor/ueditor.config.js"></script>
 <script type="text/javascript" charset="utf-8"
 	src="${pageContext.request.contextPath}/static/ueditor/ueditor.all.min.js">
-	
 </script>
 <script type="text/javascript">
 	function submitData() {

@@ -13,7 +13,7 @@
 						class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand" href="${pageContext.request.contextPath }/index.html"><span
-					class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;网站首页</a>
+					class="glyphicon glyphicon-ok" aria-hidden="true"></span>&nbsp;网站首页</a>
 			</div>
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse"

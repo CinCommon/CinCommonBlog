@@ -17,17 +17,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="content" column="content" />
 		<!-- <result property="typeId" column="typeId" /> -->
 		<result property="keyword" column="keyword" />
-		<association property="blogType" column="typeId" select="com.yinzifan.dao.BlogTypeDao.queryBlogTypeById"></association>
-		<association property="userInfo" column="authorId" select="com.yinzifan.dao.UserInfoDao.queryUserInfoById"></association>
+		<association property="blogType" column="typeId"
+			select="com.yinzifan.dao.BlogTypeDao.queryBlogTypeById"></association>
+		<association property="userInfo" column="authorId"
+			select="com.yinzifan.dao.UserInfoDao.queryUserInfoById"></association>
 	</resultMap>
 	<insert id="insertBlog" parameterType="BlogInfoEntity">
-		INSERT INTO t_bloginfo VALUES(null,#{title},#{summary},now(),0,0,#{content},#{blogType.id},#{keyword}, #{userInfo.id})
+		INSERT INTO t_bloginfo
+		VALUES(null,#{title},#{summary},now(),0,0,#{content},#{blogType.id},#{keyword},
+		#{userInfo.id})
 	</insert>
-	
-	<select id="queryBlogInfoById" resultMap="BlogInfoResult" parameterType="Integer">
+
+	<select id="queryBlogInfoById" resultMap="BlogInfoResult"
+		parameterType="Integer">
 		SELECT * FROM t_bloginfo WHERE id = #{id};
-	</select>	
-	<update id="updateBlogInfo" parameterType="BlogInfoEntity" >
+	</select>
+	<update id="updateBlogInfo" parameterType="BlogInfoEntity">
 		update t_bloginfo
 		<set>
 			<if test="clickCount!=null">
@@ -36,18 +41,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</set>
 		where id=#{id}
 	</update>
-	
+
 	<select id="countCate" resultMap="BlogInfoResult">
 		SELECT
-			DATE_FORMAT(bi.releaseDate, '%Y-%m') AS formatDate, 
-			COUNT(*) AS 	countByDate 
-		FROM 
-			t_bloginfo AS bi 
+		DATE_FORMAT(bi.releaseDate, '%Y-%m') AS formatDate,
+		COUNT(*) AS countByDate
+		FROM
+		t_bloginfo AS bi
 		GROUP BY formatDate
 		ORDER BY formatDate DESC
 	</select>
 
-		<select id="queryPageBlog" parameterType="Map" resultMap="BlogInfoResult">
+	<select id="queryPageBlog" parameterType="Map" resultMap="BlogInfoResult">
 		select * from t_bloginfo
 		<where>
 			<if test="typeId!=null and typeId!='' ">
@@ -62,7 +67,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			limit #{start},#{size}
 		</if>
 	</select>
-	
+
 	<select id="queryPageTotal" resultType="Long" parameterType="Map">
 		select count(*) from t_bloginfo
 		<where>
@@ -74,12 +79,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			</if>
 		</where>
 	</select>
-	
-	<select id="queryLastBlogInfo" resultMap="BlogInfoResult" parameterType="Integer">
-		SELECT * FROM t_bloginfo WHERE id&lt;#{id} ORDER BY id DESC LIMIT 1
+
+	<select id="queryLastBlogInfo" resultMap="BlogInfoResult"
+		parameterType="Integer">
+		SELECT * FROM t_bloginfo WHERE id&lt;#{id} ORDER BY id
+		DESC LIMIT 1
 	</select>
-	
-	<select id="queryNextBlogInfo" resultMap="BlogInfoResult" parameterType="Integer">
-		SELECT * FROM t_bloginfo WHERE id&gt;#{id} ORDER BY id LIMIT 1
+
+	<select id="queryNextBlogInfo" resultMap="BlogInfoResult"
+		parameterType="Integer">
+		SELECT * FROM t_bloginfo WHERE id&gt;#{id} ORDER BY id
+		LIMIT 1
 	</select>
 </mapper> 
