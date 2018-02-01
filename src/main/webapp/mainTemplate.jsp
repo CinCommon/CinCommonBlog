@@ -10,7 +10,7 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/static/bootstrap3/css/bootstrap-theme.min.css">
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/static/css/blogStyle.css">
+ 	href="${pageContext.request.contextPath}/static/css/blogStyle.css">
 <script
 	src="${pageContext.request.contextPath}/static/bootstrap3/js/jquery-1.11.2.min.js"></script>
 <script
