@@ -19,7 +19,7 @@
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li><a href="javascript: alert('不行')">申请成为博主</a></li><!-- class="active" -->
+					<li><a href="#" data-toggle="modal" data-target="#myModal">申请成为博主</a></li><!-- class="active" -->
 					<li><a href="${pageContext.request.contextPath }/navbar_content/about.html">关于本站</a></li>
 					<li><a href="#">没想好这里放什么</a></li>
 				</ul>
@@ -36,4 +36,19 @@
 		</div>
 		<!-- /.container-fluid -->
 	</nav>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">不行</h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">嗯</button>
+      </div>
+    </div>
+  </div>
 </div>

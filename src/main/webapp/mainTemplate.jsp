@@ -32,8 +32,7 @@ body {
 			<div class="col-md-3">
 				<div class="data_list">
 					<div class="data_list_title">
-						<img
-							src="${pageContext.request.contextPath}/static/images/byType_icon.png" />
+						<span class="glyphicon glyphicon-tag" style="margin: 2px"></span>
 						按日志类别
 					</div>
 					<div class="datas">
@@ -46,8 +45,7 @@ body {
 				</div>
 				<div class="data_list">
 					<div class="data_list_title">
-						<img
-							src="${pageContext.request.contextPath}/static/images/byDate_icon.png" />
+						<span class="glyphicon glyphicon-calendar" style="margin: 2px"></span>
 						按日志日期
 					</div>
 					<div class="datas">
@@ -61,8 +59,7 @@ body {
 
 				<div class="data_list">
 					<div class="data_list_title">
-						<img
-							src="${pageContext.request.contextPath}/static/images/link_icon.png" />
+						<span class="glyphicon glyphicon-link" style="margin: 2px"></span>
 						友情链接
 					</div>
 					<div class="datas">

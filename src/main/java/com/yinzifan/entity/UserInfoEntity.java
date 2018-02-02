@@ -1,4 +1,7 @@
 package com.yinzifan.entity;
+
+import java.util.Date;
+
 /**
 * @author Cin
 * @time 2018年1月22日 下午9:54:35
@@ -12,6 +15,8 @@ public class UserInfoEntity {
 	private String imageURL;
 	private String shortName;
 	private String whatsup;
+	private Date createDate;
+	private String status;
 	public Integer getId() {
 		return id;
 	}
@@ -55,9 +60,20 @@ public class UserInfoEntity {
 	public void setWhatsup(String whatsup) {
 		this.whatsup = whatsup;
 	}
-	
+	public Date getCreateDate() {
+		return createDate;
+	}
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
 	public UserInfoEntity(Integer id, String userName, String password, String profile, String imageURL,
-			String shortName, String whatsup) {
+			String shortName, String whatsup, Date createDate, String status) {
 		super();
 		this.id = id;
 		this.userName = userName;
@@ -66,6 +82,8 @@ public class UserInfoEntity {
 		this.imageURL = imageURL;
 		this.shortName = shortName;
 		this.whatsup = whatsup;
+		this.createDate = createDate;
+		this.status = status;
 	}
 	public UserInfoEntity() {
 		super();
@@ -74,7 +92,8 @@ public class UserInfoEntity {
 	@Override
 	public String toString() {
 		return "UserInfoEntity [id=" + id + ", userName=" + userName + ", password=" + password + ", profile=" + profile
-				+ ", imageURL=" + imageURL + ", shortName=" + shortName + ", whatsup=" + whatsup + "]";
+				+ ", imageURL=" + imageURL + ", shortName=" + shortName + ", whatsup=" + whatsup + ", createDate="
+				+ createDate + ", status=" + status + "]";
 	}
 	
 }
