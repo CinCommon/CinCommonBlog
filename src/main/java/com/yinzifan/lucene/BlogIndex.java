@@ -31,5 +31,4 @@ public class BlogIndex {
 		IndexWriter writer = getWriter();
 		Document docoment = new Document();
 	}
-	
 }

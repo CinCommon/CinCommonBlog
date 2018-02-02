@@ -45,16 +45,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="countCate" resultMap="BlogInfoResult">
 		SELECT
 		DATE_FORMAT(bi.releaseDate, '%Y-%m') AS formatDate,
-		COUNT(*) AS countByDate
+		COUNT(*) AS
+		countByDate
 		FROM
 		t_bloginfo AS bi
 		GROUP BY formatDate
-		ORDER BY formatDate DESC
+		ORDER BY formatDate
+		DESC
 	</select>
 
 	<select id="queryPageBlog" parameterType="Map" resultMap="BlogInfoResult">
 		select * from t_bloginfo
 		<where>
+			<if test="title!=null and title!='' ">
+				and title like #{title}
+			</if>
 			<if test="typeId!=null and typeId!='' ">
 				and typeId=#{typeId}
 			</if>
@@ -71,6 +76,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="queryPageTotal" resultType="Long" parameterType="Map">
 		select count(*) from t_bloginfo
 		<where>
+			<if test="title!=null and title!='' ">
+				and title like #{title}
+			</if>
 			<if test="typeId!=null and typeId!='' ">
 				and typeId=#{typeId}
 			</if>
