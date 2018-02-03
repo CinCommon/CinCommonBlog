@@ -8,6 +8,8 @@ import org.apache.shiro.authc.SimpleAuthenticationInfo;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.yinzifan.entity.UserInfoEntity;
@@ -21,11 +23,13 @@ import com.yinzifan.service.UserInfoService;
 public class MyRealm extends AuthorizingRealm{
 	@Autowired
 	private UserInfoService userInfoService;
+	private final static Logger LOGGER = LoggerFactory.getLogger(MyRealm.class);
 	/**
 	 * 为当前登录的用户授予角色和权限
 	 */
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
+		LOGGER.info("MyRealm.doGetAuthorizationInfo");
 		return null;
 	}
 
@@ -34,6 +38,7 @@ public class MyRealm extends AuthorizingRealm{
 	 */
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
+		LOGGER.info("MyRealm.doGetAuthenticationInfo");
 		UserInfoEntity userInfo = userInfoService.queryUserInfoByUserName(token.getPrincipal().toString());
 		if(userInfo == null) return null;
 		else {
