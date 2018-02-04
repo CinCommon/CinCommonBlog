@@ -1,6 +1,7 @@
 package com.yinzifan.controller.admin;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -68,4 +69,10 @@ public class BlogAdminController {
 		ResponseUtil.write(resp, json);
 	}
 
+	public void deleteBlogInfos(@RequestParam(value = "ids") String ids, HttpServletResponse resp) throws IOException {
+		Arrays.stream(ids.split(",")).forEach(x -> blogInfoService.deleteBlogInfoById(Integer.parseInt(x)));
+		JSONObject json = new JSONObject();
+		json.put("success", true);
+		ResponseUtil.write(resp, json);
+	}
 }

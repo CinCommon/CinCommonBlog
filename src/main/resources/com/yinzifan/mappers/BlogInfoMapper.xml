@@ -99,4 +99,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT * FROM t_bloginfo WHERE id&gt;#{id} ORDER BY id
 		LIMIT 1
 	</select>
+	<delete id="deleteBlogInfoById" parameterType="Integer">
+		DELETE FROM t_bloginfo WHERE id=#{id}
+	</delete>
 </mapper> 

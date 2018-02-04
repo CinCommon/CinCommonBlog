@@ -25,5 +25,7 @@ public interface BlogInfoService {
 	public BlogInfoEntity queryNextBlogInfo(Integer id);
 
 	public BlogInfoEntity queryLastBlogInfo(Integer id);
+	
+	public Integer deleteBlogInfoById(Integer id);
 
 }
