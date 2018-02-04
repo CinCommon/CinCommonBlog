@@ -46,30 +46,27 @@
 	<div region="center">
 		<div class="easyui-tabs" fit="true" border="false" id="tabs">
 			<div title="首页" data-options="iconCls:'icon-home'">
-			<div >
-				<span id="p" class="easyui-panel" title="博主信息"
-					style="width: 500px; height: 150px; padding: 10px; background: #fafafa;"
-					data-options="iconCls:'icon-save'">
-					<p>您好! ${loginUserInfo.userName }</p>
-					<p>您好! 您已来到本站666天</p>
-				</span>
-				<div id="p" class="easyui-panel" title="博客信息"
-					style="width: 500px; height: 150px; padding: 10px; background: #fafafa;"
-					data-options="iconCls:'icon-save'">
-					<p>您已发布666篇博客</p>
-					<p></p>
+				<div style="padding: 10px">
+					<div id="p" class="easyui-panel" title="博主信息"
+						style="width: 500px; height: 150px; padding: 10px; background: #fafafa;"
+						data-options="iconCls:'icon-save'">
+						<p>您好! ${loginUserInfo.userName }</p>
+						<p>您好! 您已来到本站666天</p>
+					</div>
 				</div>
-				<div id="p" class="easyui-panel" title="评论信息"
-					style="width: 500px; height: 150px; padding: 10px; background: #fafafa;"
-					data-options="iconCls:'icon-save'">
-					<p>panel content.</p>
-					<p>panel content.</p>
+				<div style="padding: 10px">
+					<div id="p" class="easyui-panel" title="博客信息"
+						style="width: 500px; height: 150px; padding: 10px; background: #fafafa;"
+						data-options="iconCls:'icon-save'">
+						<p>您已发布666篇博客</p>
+					</div>
 				</div>
-			</div>
-
-
-				<div align="center" style="padding-top: 100px">
-					<font color="red" size="10">欢迎使用</font>
+				<div style="padding: 10px">
+					<div id="p" class="easyui-panel" title="评论信息"
+						style="width: 500px; height: 150px; padding: 10px; background: #fafafa;"
+						data-options="iconCls:'icon-save'">
+						<p>您累计收到666条评论.</p>
+					</div>
 				</div>
 			</div>
 		</div>
