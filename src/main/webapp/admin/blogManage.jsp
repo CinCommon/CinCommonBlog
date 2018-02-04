@@ -36,6 +36,38 @@
 			"title":$("#s_title").val()
 		});
 	}
+	function showSystemAlert(msg) {
+		$.messager.alert("系统提示", msg)
+	}
+	
+	function openBlogModifyTab() {
+		
+	}
+	
+	function deleteBlog(){
+		var selectedRows=$("#dg").datagrid("getSelections");
+		if(selectedRows.length==0){
+			showSystemAlert("请选择要删除的数据！");
+			return;
+		}
+		var strIds=[];
+		for(var i=0;i<selectedRows.length;i++){
+			strIds.push(selectedRows[i].id);
+		}
+		var ids=strIds.join(",");
+		$.messager.confirm("系统提示","您确定要删除这"+selectedRows.length+"条数据吗？",function(r){
+			if(r){
+				$.post("${pageContext.request.contextPath}/admin/blog/deleteBlog.do",{ids:ids},function(result){
+					if(result.success){
+						showSystemAlert("数据已成功删除！");
+						$("#dg").datagrid("reload");
+					}else{
+						showSystemAlert("数据删除失败！");
+					}
+				},"json");
+			}
+		});
+	}
 </script>
 <title>博客一览</title>
 </head>
@@ -54,8 +86,10 @@
   </thead>
 </table>
 <div id="tb">
-	<input class="easyui-textbox" data-options="iconCls:'icon-search'" style="margin: 5px; width:200px" /> 
-	<a href="" iconCls="icon-search" class="easyui-linkbutton" >搜索</a>
+	<a href="javascript:openBlogModifyTab()" class="easyui-linkbutton" iconCls="icon-edit" plain="true">修改</a>
+		<a href="javascript:deleteBlog()" class="easyui-linkbutton" iconCls="icon-remove" plain="true">删除</a>
+	<input id="s_title" class="easyui-textbox" data-options="iconCls:'icon-search'" style="margin: 5px; width:200px" onkeydown="if(event.keyCode==13) searchBlog()" /> 
+	<a href="javascript: searchBlog()" iconCls="icon-search" class="easyui-linkbutton" >搜索</a>
 </div>
 </body>
 </html>
