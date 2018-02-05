@@ -12,6 +12,14 @@
 		<error-code>404</error-code>
 		<location>/errorpages/error404.jsp</location>
 	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/errorpages/error5XX.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>503</error-code>
+		<location>/errorpages/error5XX.jsp</location>
+	</error-page>
 	<!-- shiro过滤器定义 -->
 	<filter>
 		<filter-name>shiroFilter</filter-name>

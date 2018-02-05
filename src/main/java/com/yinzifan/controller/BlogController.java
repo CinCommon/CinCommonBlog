@@ -30,7 +30,6 @@ public class BlogController {
 		BlogInfoEntity entity = blogInfoService.queryBlogInfoById(Integer.valueOf(id));
 		entity.setClickCount(entity.getClickCount() + 1);
 		blogInfoService.updateBlogInfo(entity);
-
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("blogDetails", entity);
 		mav.addObject("nextBlogInfo", blogInfoService.queryNextBlogInfo(Integer.valueOf(id)));
