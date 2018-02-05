@@ -23,7 +23,7 @@ body {
 }
 </style>
 </head>
-<body style="background-color: #d0d0d0">
+<body style="background-color: #d0d0d0; padding: 10px">
 	<div class="constainer">
 		<jsp:include page="foreground/common/head.jsp" />
 		<jsp:include page="foreground/common/navbar.jsp" />

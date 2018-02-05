@@ -155,8 +155,8 @@ function checkForm(){
 		$("#error").html("密码不能为空！");
 		return false;
 	}
-	console.log('userName: ', userName);
-	console.log('password: ', password);
+	// console.log('userName: ', userName);
+	// console.log('password: ', password);
 	return true;
 }
 </SCRIPT>
