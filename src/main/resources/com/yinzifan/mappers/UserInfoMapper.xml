@@ -11,6 +11,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="imageURL" column="imageURL"/>
 		<result property="shortName" column="shortName"/>
 		<result property="whatsup" column="whatsup"/>
+		<result property="createDate" column="createDate"/>
+		<result property="status" column="status"/>
 	</resultMap>
 	<select id="queryUserInfoById" parameterType="Integer" resultMap="UserInfoResult">
 		SELECT * FROM t_userinfo WHERE id=#{id}

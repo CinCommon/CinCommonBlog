@@ -27,4 +27,6 @@ public interface BlogInfoDao {
 	
 	public BlogInfoEntity queryLastBlogInfo(Integer id);
 	
+	public Integer deleteBlogInfoById(Integer id);
+	
 }

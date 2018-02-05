@@ -6,8 +6,7 @@
 <div class="col-md-9">
 	<div class="data_list">
 		<div class="data_list_title">
-			<img
-				src="${pageContext.request.contextPath}/static/images/list_icon.png" />
+			<span class="glyphicon glyphicon-th-list" style="margin: 2px"></span>
 			最新博客
 		</div>
 		<div class="datas">
