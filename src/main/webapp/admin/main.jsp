@@ -36,7 +36,7 @@
 	<div region="north" style="height: 78px; background-color: #E0ECFF">
 		<table style="padding: 5px" width="100%">
 			<tr>
-				<td width="50%"><img alt="logo" src="/static/images/logo.png">
+				<td width="50%"><div style="cursor: pointer" onclick="location='${pageContext.request.contextPath}/index.html'"><img alt="logo" src="/static/images/logo.png"></div>
 				</td>
 				<td valign="bottom" align="right" width="50%"><font size="3">&nbsp;&nbsp;<strong>欢迎：</strong>${loginUserInfo.userName }</font>
 				</td>

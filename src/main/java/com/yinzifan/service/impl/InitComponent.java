@@ -33,11 +33,13 @@ public class InitComponent implements
 	private static final Logger LOGGER = LoggerFactory.getLogger(InitComponent.class);
 	@Override
 	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+	    LOGGER.debug("InitComponent.setApplicationContext(applicationContext)");
 		InitComponent.applicationContext = applicationContext;
 	}
 
 	@Override
 	public void contextInitialized(ServletContextEvent sce) {
+	    LOGGER.debug("InitComponent.contextInitialized(sce)");
 		ServletContext servletContext = sce.getServletContext();
 		/**
 		 * get User info
@@ -54,7 +56,7 @@ public class InitComponent implements
 		LOGGER.debug("getLinkEntities: {}" , links.toString());
 		servletContext.setAttribute("links", links );
 		/**
-		 * get User info
+		 * get Blog info
 		 */
 		BlogInfoService blogInfoService = applicationContext.getBean("blogInfoService", BlogInfoService.class);
 		List<BlogInfoEntity> blogInfoEntites= blogInfoService.countCate();
@@ -65,7 +67,7 @@ public class InitComponent implements
 	}
 	@Override
 	public void contextDestroyed(ServletContextEvent sce) {
-		
+	    LOGGER.debug("InitComponent.contextDestroyed(sce)");
 	}
 
 }
