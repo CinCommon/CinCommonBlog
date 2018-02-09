@@ -10,13 +10,6 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/jquery.easyui.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/locale/easyui-lang-zh_CN.js"></script>
 <script type="text/javascript">
-// 	$('#dg').datagrid({    
-// 	    columns:[[
-// 	        {field:'code',title:'Code',width:100},    
-// 	        {field:'name',title:'Name',width:100},    
-// 	        {field:'price',title:'Price',width:100,align:'right'}    
-// 	    ]]    
-// 	}); 
 	
 	function formatTitle(val,row){
 		return "<a target='_blank' href='${pageContext.request.contextPath}/articles/"+row.id+".html'>"+val+"</a>";
@@ -87,7 +80,7 @@
 </table>
 <div id="tb">
 	<a href="javascript:openBlogModifyTab()" class="easyui-linkbutton" iconCls="icon-edit" plain="true">修改</a>
-		<a href="javascript:deleteBlog()" class="easyui-linkbutton" iconCls="icon-remove" plain="true">删除</a>
+	<a href="javascript:deleteBlog()" class="easyui-linkbutton" iconCls="icon-remove" plain="true">删除</a>
 	<input id="s_title" class="easyui-textbox" data-options="iconCls:'icon-search'" style="margin: 5px; width:200px" onkeydown="if(event.keyCode==13) searchBlog()" /> 
 	<a href="javascript: searchBlog()" iconCls="icon-search" class="easyui-linkbutton" >搜索</a>
 </div>

@@ -36,8 +36,7 @@
 		</div>
 		<div>
 			<nav>
-				<ul class="pagination pagination-sm">${pageHtml }
-				</ul>
+				<ul class="pagination pagination-sm">${pageHtml }</ul>
 			</nav>
 		</div>
 	</div>
