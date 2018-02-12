@@ -36,8 +36,10 @@
 	<div region="north" style="height: 78px; background-color: #E0ECFF">
 		<table style="padding: 5px" width="100%">
 			<tr>
-				<td width="50%"><img alt="logo" src="/static/images/logo.png">
-				</td>
+				<td width="50%"><div style="cursor: pointer"
+						onclick="location='${pageContext.request.contextPath}/index.html'">
+						<img alt="logo" src="/static/images/logo.png">
+					</div></td>
 				<td valign="bottom" align="right" width="50%"><font size="3">&nbsp;&nbsp;<strong>欢迎：</strong>${loginUserInfo.userName }</font>
 				</td>
 			</tr>
@@ -50,22 +52,22 @@
 					<div id="p" class="easyui-panel" title="博主信息"
 						style="width: 500px; height: 150px; padding: 10px; background: #fafafa;"
 						data-options="iconCls:'icon-save'">
-						<p>您好! ${loginUserInfo.userName }</p>
-						<p>您好! 您已来到本站666天</p>
+						<p>你好! ${loginUserInfo.userName }</p>
+						<p>你好! 你已成为博主666天</p>
 					</div>
 				</div>
 				<div style="padding: 10px">
 					<div id="p" class="easyui-panel" title="博客信息"
 						style="width: 500px; height: 150px; padding: 10px; background: #fafafa;"
 						data-options="iconCls:'icon-save'">
-						<p>您已发布666篇博客</p>
+						<p>你已发布666篇博客</p>
 					</div>
 				</div>
 				<div style="padding: 10px">
 					<div id="p" class="easyui-panel" title="评论信息"
 						style="width: 500px; height: 150px; padding: 10px; background: #fafafa;"
 						data-options="iconCls:'icon-save'">
-						<p>您累计收到666条评论.</p>
+						<p>你累计收到666条评论.</p>
 					</div>
 				</div>
 			</div>
@@ -138,7 +140,12 @@
 		</div>
 	</div>
 	<div region="south" style="height: 25px; padding: 5px" align="center">
-		Copyright © 2012-2016 Java知识分享网 版权所有</div>
-
+		<div align="center" style="padding-top: 120px">
+			<span style="float: left;">Powered by <a
+				href="${pageContext.servletContext.contextPath }/index.html"
+				target="_blank">CinCommon</a> V0.1
+			</span> Copyright © CinCommon
+		</div>
+	</div>
 </body>
 </html>

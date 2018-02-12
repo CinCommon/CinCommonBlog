@@ -30,11 +30,11 @@ public class BlogController {
 		BlogInfoEntity entity = blogInfoService.queryBlogInfoById(Integer.valueOf(id));
 		entity.setClickCount(entity.getClickCount() + 1);
 		blogInfoService.updateBlogInfo(entity);
-
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("blogDetails", entity);
 		mav.addObject("nextBlogInfo", blogInfoService.queryNextBlogInfo(Integer.valueOf(id)));
 		mav.addObject("lastBlogInfo", blogInfoService.queryLastBlogInfo(Integer.valueOf(id)));
+		mav.addObject("pageTitle", entity.getTitle());// foreground/blog/blog_content
 		mav.addObject("mainPage", "foreground/blog/blog_content.jsp");// foreground/blog/blog_content
 		mav.setViewName("mainTemplate");
 		return mav;

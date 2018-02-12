@@ -6,12 +6,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>关于本站</title>
 </head>
-<body>
+<body style="minHeight: 500px">
 	<div class="col-md-9">
 		<div class="well well-lg">
-			<h3>
-				关于本站
-			</h3><span class="label label-default">v0.1</span>
+		  <div>
+		  <h3>
+                关于本站
+            </h3>
+			<span class="label label-default" style="margin: 10px">v0.1</span>
+		  </div>
 			<div>
 				本站源码托管于<a href="https://gitee.com/CinCommon/CinCommonBlog.git" class="glyphicon glyphicon-link">这里</a>&nbsp;欢迎各位
 				<button type="button" class="btn btn-default btn-sm">

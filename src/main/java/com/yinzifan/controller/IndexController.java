@@ -74,7 +74,6 @@ public class IndexController {
 				blogInfoService.queryPageTotal(map), pageBean.getPage(), pageBean.getPageSize(), sb.toString());
 		mav.addObject("pageHtml", pageHtml);
 		mav.addObject("blogList", blogList);
-		// mav.addObject("pageTitle", "java开源博客系统");
 		mav.addObject("mainPage", "foreground/blog/list.jsp");
 		mav.setViewName("mainTemplate");
 		return mav;
