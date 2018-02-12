@@ -45,6 +45,8 @@ public class BlogAdminController {
 		int resultTotal = 0;
 		if (blogInfo.getId() == null) {
 			resultTotal = blogInfoService.insertBlog(blogInfo);
+		} else {
+			resultTotal = blogInfoService.updateBlogInfo(blogInfo);
 		}
 		JSONObject result = new JSONObject();
 		if (resultTotal > 0) {

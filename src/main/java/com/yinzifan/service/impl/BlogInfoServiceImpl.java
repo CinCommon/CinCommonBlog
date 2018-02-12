@@ -40,8 +40,8 @@ public class BlogInfoServiceImpl  implements BlogInfoService{
 	}
 
 	@Override
-	public void updateBlogInfo(BlogInfoEntity entity) {
-		blogInfoDao.updateBlogInfo(entity);
+	public Integer updateBlogInfo(BlogInfoEntity entity) {
+		return blogInfoDao.updateBlogInfo(entity);
 	}
 
 	@Override

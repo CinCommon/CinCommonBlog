@@ -19,7 +19,7 @@ public interface BlogInfoDao {
 	
     public BlogInfoEntity queryBlogInfoById(Integer id);
 	
-	public void updateBlogInfo(BlogInfoEntity entity);
+	public Integer updateBlogInfo(BlogInfoEntity entity);
 	
 	public Integer insertBlog(BlogInfoEntity entity);
 	

@@ -35,6 +35,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="updateBlogInfo" parameterType="BlogInfoEntity">
 		update t_bloginfo
 		<set>
+			<if test="title!=null">
+				title=#{title}
+			</if>
+			<if test="summary!=null">
+				summary=#{summary}
+			</if>
+			<if test="content!=null">
+				content=#{content}
+			</if>
+			<if test="blogType.id!=null">
+				typeId=#{blogType.id}
+			</if>
+			<if test="keyword!=null">
+				keyword=#{keyword}
+			</if>
+			<if test="userinfo.id!=null">
+				authorId=#{userinfo.id}
+			</if>
 			<if test="clickCount!=null">
 				clickCount=#{clickCount},
 			</if>
