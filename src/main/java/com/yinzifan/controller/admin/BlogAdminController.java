@@ -33,6 +33,7 @@ public class BlogAdminController {
 	@Autowired
 	private BlogInfoService blogInfoService;
 	private final static Logger LOGGER = LoggerFactory.getLogger(BlogAdminController.class);
+
 	/**
 	 * 写博客
 	 * @param blogInfo 前台编辑完成的待保存博客内容
@@ -40,8 +41,7 @@ public class BlogAdminController {
 	 * @throws IOException
 	 */
 	@RequestMapping("/insert")
-	public void insertBlog(BlogInfoEntity blogInfo, HttpServletResponse resp)
-			throws IOException {
+	public void insertBlog(BlogInfoEntity blogInfo, HttpServletResponse resp) throws IOException {
 		int resultTotal = 0;
 		if (blogInfo.getId() == null) {
 			resultTotal = blogInfoService.insertBlog(blogInfo);
@@ -67,7 +67,8 @@ public class BlogAdminController {
 	 */
 	@RequestMapping("/querypageBlogs")
 	public void querypageBlogs(@RequestParam(value = "page", required = false) String page,
-			@RequestParam(value = "rows", required = false) String rows, BlogInfoEntity blog, HttpServletResponse resp) throws IOException {
+			@RequestParam(value = "rows", required = false) String rows, BlogInfoEntity blog, HttpServletResponse resp)
+			throws IOException {
 		PageBean pageBean = new PageBean(Integer.parseInt(page), Integer.parseInt(rows));
 		Map<String, Object> map = new HashMap<>();
 		map.put("title", StringUtil.formatLike(blog.getTitle()));
@@ -80,7 +81,7 @@ public class BlogAdminController {
 		json.put("total", blogInfoService.queryPageTotal(map));
 		ResponseUtil.write(resp, json);
 	}
-	
+
 	/**
 	 * @param ids 要删除的所有博客的id
 	 * @param resp Response
@@ -91,6 +92,14 @@ public class BlogAdminController {
 		Arrays.stream(ids.split(",")).forEach(x -> blogInfoService.deleteBlogInfoById(Integer.parseInt(x)));
 		JSONObject json = new JSONObject();
 		json.put("success", true);
+		ResponseUtil.write(resp, json);
+	}
+
+	@RequestMapping("queryBlogInfoById")
+	public void queryBlogInfoById(@RequestParam(value="id") String id, HttpServletResponse resp) throws IOException {
+		JSONObject json = new JSONObject();
+		json.put("success", true);
+		json.put("entity", blogInfoService.queryBlogInfoById(Integer.valueOf(id)));
 		ResponseUtil.write(resp, json);
 	}
 }

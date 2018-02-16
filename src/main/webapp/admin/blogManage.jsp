@@ -61,6 +61,16 @@
 			}
 		});
 	}
+	
+		function openBlogModifyTab(){
+			var selectedRows=$("#dg").datagrid("getSelections");
+			if(selectedRows.length!=1){
+				showSystemAlert("请选择一个要修改的博客！");
+				return;
+			}
+			var row=selectedRows[0];
+			window.parent.openTab('修改博客','modifyBlog.jsp?id='+row.id,'icon-writeblog');
+		}
 </script>
 <title>博客一览</title>
 </head>
