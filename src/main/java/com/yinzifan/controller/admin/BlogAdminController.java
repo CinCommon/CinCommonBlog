@@ -42,6 +42,7 @@ public class BlogAdminController {
 	 */
 	@RequestMapping("/insert")
 	public void insertBlog(BlogInfoEntity blogInfo, HttpServletResponse resp) throws IOException {
+		LOGGER.debug("insert: blogInfo:{} ", blogInfo);
 		int resultTotal = 0;
 		if (blogInfo.getId() == null) {
 			resultTotal = blogInfoService.insertBlog(blogInfo);

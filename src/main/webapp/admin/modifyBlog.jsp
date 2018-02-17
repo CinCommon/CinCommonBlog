@@ -31,7 +31,7 @@
 		}else if(content==null || content==''){
 			alert("请填写内容！");
 		}else{
-			$.post("${pageContext.request.contextPath}/admin/blog/save.do",{'id':'${param.id}','title':title,'blogType.id':blogTypeId,
+			$.post("${pageContext.request.contextPath}/admin/blog/insert.do",{'id':'${param.id}','title':title,'blogType.id':blogTypeId,
 				'contentNoTag':UE.getEditor('editor').getContentTxt(),
 				'content':content,'summary':UE.getEditor('editor').getContentTxt().substr(0,155),'keyword':keyword},function(result){
 				if(result.success){
@@ -61,7 +61,7 @@
 			<td>
 				<select class="easyui-combobox" style="width: 154px" id="blogTypeId" name="blogType.id" editable="false" panelHeight="auto">
 					<option value="">请选择博客类别...</option>
-					<c:forEach var="blogType" items="${blogTypeCountList }">
+					<c:forEach var="blogType" items="${blogTypeEntites }">
 						<option value="${blogType.id }">${blogType.typeName }</option>
 					</c:forEach>
 				</select>
