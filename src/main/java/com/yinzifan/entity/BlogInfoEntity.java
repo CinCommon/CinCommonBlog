@@ -42,6 +42,10 @@ public class BlogInfoEntity {
 	private String formatDate;
 	private List<String> images = new ArrayList<String>();
 	
+	public BlogInfoEntity(Integer id) {
+		super();
+		this.id = id;
+	}
 	public List<String> getImages() {
 		return images;
 	}

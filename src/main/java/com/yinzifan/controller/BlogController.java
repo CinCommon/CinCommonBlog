@@ -28,8 +28,12 @@ public class BlogController {
 	public ModelAndView loadingBlog(HttpServletRequest req, @PathVariable("id") String id) {
 		LOGGER.info("BlogController.loadingBlog(): id= {}", id);
 		BlogInfoEntity entity = blogInfoService.queryBlogInfoById(Integer.valueOf(id));
-		entity.setClickCount(entity.getClickCount() + 1);
-		blogInfoService.updateBlogInfo(entity);
+		Integer clickCount = entity.getClickCount();
+		if(entity != null) {
+			entity = new BlogInfoEntity(new Integer(id));
+			entity.setClickCount(clickCount+1);
+			blogInfoService.updateBlogInfo(entity);
+		}
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("blogDetails", entity);
 		mav.addObject("nextBlogInfo", blogInfoService.queryNextBlogInfo(Integer.valueOf(id)));
