@@ -23,10 +23,12 @@
 					class="blog-detail-small"> 阅读(${blogDetails.clickCount })</small> <small
 					class="blog-detail-small">评论(${blogDetails.replyCount })</small>
 			</div>
-			<c:if
-				test="${blogDetails.userInfo.userName != null || blogDetails.userInfo.userName !=''}">
-				<div>作者: ${blogDetails.userInfo.userName }</div>
-			</c:if>
+			<c:choose>
+				<c:when
+					test="${blogDetails.userInfo.userName != null || blogDetails.userInfo.userName !=''}">
+					<div>作者: ${blogDetails.userInfo.userName }</div>
+				</c:when>
+			</c:choose>
 			<!-- JiaThis Button BEGIN -->
 			<div class="blog-title jiathis_style">
 				<a class="jiathis_button_tsina"></a> <a class="jiathis_button_tqq"></a>
