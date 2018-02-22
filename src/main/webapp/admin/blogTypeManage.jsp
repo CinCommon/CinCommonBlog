@@ -10,13 +10,20 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/jquery.easyui.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/locale/easyui-lang-zh_CN.js"></script>
 <script type="text/javascript">
+$("#dg").datagrid({
+	onDblClickRow: function (index, row) {
+		$.messager.alert('Warning','essage');
+	}
+});
 </script>
 <title>博客类别管理</title>
 </head>
 <body>
 <table id="dg" title="博客类别管理" class="easyui-datagrid" 
-  fitColumns="true" pagination="true" rownumbers="true"
-  url="${pageContext.request.contextPath}/admin/blogtype/queryPageBlogTypes.do" fit="true" toolbar="#tb">
+  fitColumns="true" pagination="true" 
+  url="${pageContext.request.contextPath}/admin/blogtype/queryPageBlogTypes.do"
+  fit="true"
+  toolbar="#tb">
   <thead>
   	<tr>
   		<th field="cb" checkbox="true" align="center"></th>
