@@ -38,5 +38,4 @@ public class BlogController {
 		mav.setViewName("mainTemplate");
 		return mav;
 	}
-
 }
