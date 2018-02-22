@@ -1,6 +1,7 @@
 package com.yinzifan.service.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,6 +27,16 @@ public class BlogTypeServiceImpl implements BlogTypeService {
 	public BlogTypeEntity queryBlogTypeById(Integer id) {
 		return blogTypeDao.queryBlogTypeById(id);
 	}
-
+	@Override
+	public List<BlogTypeEntity> queryPageBlogType(Map<String, Object> map) {
+		return blogTypeDao.queryPageBlogType(map);
+	}
+	/**
+	 * 查询所有BlogTypeEntity的数量
+	 * @return
+	 */
+	public Long queryPageTotal() {
+		return blogTypeDao.queryPageTotal();
+	}
 	
 }
