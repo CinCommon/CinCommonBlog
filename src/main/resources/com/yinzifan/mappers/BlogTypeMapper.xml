@@ -48,4 +48,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select count(*) from t_blogtype
 	</select>
 
+	<insert id="insertBlogType" parameterType="BlogTypeEntity" >
+		INSERT INTO t_blogtype(typeName, typeOrder) VALUES(#{typeName}, #{typeOrder});
+	</insert>
+	
+		<update id="updateBlogType" parameterType="BlogTypeEntity">
+		update t_blogtype
+		<set>
+			<if test="typeName!=null and typeName!=''">
+				typeName=#{typeName},
+			</if>
+			<if test="typeOrder != null">
+				typeOrder=#{typeOrder},
+			</if>
+		</set>
+		where id=#{id}
+	</update>
+	
 </mapper> 

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.alibaba.fastjson.JSONObject;
 import com.yinzifan.entity.BlogTypeEntity;
 import com.yinzifan.entity.PageBean;
+import com.yinzifan.service.BlogInfoService;
 import com.yinzifan.service.BlogTypeService;
 import com.yinzifan.util.ResponseUtil;
 
@@ -26,10 +27,12 @@ import com.yinzifan.util.ResponseUtil;
 * 博客类别管理Controller
 */
 @Controller
-@RequestMapping("/admin/blogtype")
+@RequestMapping("/admin/blogType")
 public class BlogTypeAdminController {
 	@Autowired
 	private BlogTypeService blogTypeService;
+	@Autowired
+	private BlogInfoService blogInfoService;
 	private final static Logger LOGGER = LoggerFactory.getLogger(BlogTypeAdminController.class);
 	
 	@RequestMapping("queryPageBlogTypes")
@@ -46,4 +49,69 @@ public class BlogTypeAdminController {
 		json.put("total", blogTypeService.queryPageTotal());
 		ResponseUtil.write(resp, json);
 	}
+	/**
+	 * 添加或者修改博客类别信息
+	 * @param entity
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/insertBlogType")
+	public String insertBlogType(BlogTypeEntity entity,HttpServletResponse response)throws Exception{
+		int resultTotal=0; 
+			resultTotal=blogTypeService.insertBlogType(entity);
+		JSONObject result=new JSONObject();
+		if(resultTotal>0){
+			result.put("success", true);
+		}else{
+			result.put("success", false);
+		}
+		ResponseUtil.write(response, result);
+		return null;
+	}
+	
+	/**
+	 * 添加或者修改博客类别信息
+	 * @param entity
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/updateBlogType")
+	public String save(BlogTypeEntity entity,HttpServletResponse response)throws Exception{
+		int resultTotal=0; 
+		resultTotal=blogTypeService.updateBlogType(entity);
+		JSONObject result=new JSONObject();
+		if(resultTotal>0){
+			result.put("success", true);
+		}else{
+			result.put("success", false);
+		}
+		ResponseUtil.write(response, result);
+		return null;
+	}
+	
+//	/**
+//	 * 博客类别信息删除
+//	 * @param ids
+//	 * @param response
+//	 * @return
+//	 * @throws Exception
+//	 */
+//	@RequestMapping("/delete")
+//	public String delete(@RequestParam(value="ids",required=false)String ids,HttpServletResponse response)throws Exception{
+//		String []idsStr=ids.split(",");
+//		JSONObject result=new JSONObject();
+//		for(int i=0;i<idsStr.length;i++){
+//			if(blogInfoService.getBlogByTypeId(Integer.parseInt(idsStr[i]))>0){
+//				result.put("exist", "博客类别下有博客，不能删除！");
+//			}else{
+//				blogTypeService.delete(Integer.parseInt(idsStr[i]));				
+//			}
+//		}
+//		result.put("success", true);
+//		ResponseUtil.write(response, result);
+//		return null;
+//	}
+//	
 }

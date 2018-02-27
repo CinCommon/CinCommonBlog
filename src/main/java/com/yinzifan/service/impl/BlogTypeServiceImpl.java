@@ -38,5 +38,13 @@ public class BlogTypeServiceImpl implements BlogTypeService {
 	public Long queryPageTotal() {
 		return blogTypeDao.queryPageTotal();
 	}
+	@Override
+	public Integer insertBlogType(BlogTypeEntity entity) {
+		return blogTypeDao.insertBlogType(entity);
+	}
+	@Override
+	public Integer updateBlogType(BlogTypeEntity entity) {
+		return blogTypeDao.updateBlogType(entity);
+	}
 	
 }

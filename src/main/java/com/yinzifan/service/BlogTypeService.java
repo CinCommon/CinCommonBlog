@@ -24,4 +24,17 @@ public interface BlogTypeService {
 	 * @return
 	 */
 	public Long queryPageTotal();
+	/**
+	 * 插入一条新的BlogTypeEntity
+	 * @param entity
+	 * @return
+	 */
+	public Integer insertBlogType(BlogTypeEntity entity);
+	/**
+	 * 根据已有的BlogType.Id更新BlogTypeEntity
+	 * @param entity
+	 * @return
+	 */
+	public Integer updateBlogType(BlogTypeEntity entity);
+
 }
