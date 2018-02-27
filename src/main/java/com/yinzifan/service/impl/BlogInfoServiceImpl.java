@@ -63,5 +63,10 @@ public class BlogInfoServiceImpl  implements BlogInfoService{
 	public Integer deleteBlogInfoById(Integer id) {
 		return blogInfoDao.deleteBlogInfoById(id);
 	}
+
+	@Override
+	public Integer queryBlogInfoByTypeId(Integer typeId) {
+		return blogInfoDao.queryBlogInfoByTypeId(typeId);
+	}
 	
 }

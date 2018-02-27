@@ -46,5 +46,8 @@ public class BlogTypeServiceImpl implements BlogTypeService {
 	public Integer updateBlogType(BlogTypeEntity entity) {
 		return blogTypeDao.updateBlogType(entity);
 	}
-	
+	@Override
+	public Integer deleteBlogType(Integer id) {
+		return blogTypeDao.deleteBlogType(id);
+	}
 }

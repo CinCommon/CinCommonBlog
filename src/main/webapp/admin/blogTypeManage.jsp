@@ -78,7 +78,7 @@
 				$.post("${pageContext.request.contextPath}/admin/blogType/deleteBlogType.do",{ids:ids},function(result){
 					if(result.success){
 						if(result.exist){
-							$.messager.alert("系统提示",result.exist);
+							$.messager.alert("系统提示","该类别下存在博客无法删除!");
 						}else{
 							$.messager.alert("系统提示","数据已成功删除！");							
 						}

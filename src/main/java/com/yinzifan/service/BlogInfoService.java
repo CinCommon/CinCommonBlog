@@ -28,4 +28,10 @@ public interface BlogInfoService {
 	
 	public Integer deleteBlogInfoById(Integer id);
 
+	/**
+	 * 根据TypeId查询是否有该Type的BlogInfo信息
+	 * @param TypeId
+	 * @return
+	 */
+	public Integer queryBlogInfoByTypeId(Integer typeId);
 }

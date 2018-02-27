@@ -120,4 +120,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id="deleteBlogInfoById" parameterType="Integer">
 		DELETE FROM t_bloginfo WHERE id=#{id}
 	</delete>
+	<select id="queryBlogInfoByTypeId" parameterType="Integer" resultType="Integer">
+		select count(*) from t_bloginfo where typeId=#{typeId}
+	</select>
 </mapper> 

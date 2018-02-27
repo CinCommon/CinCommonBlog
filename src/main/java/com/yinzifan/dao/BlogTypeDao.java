@@ -37,4 +37,10 @@ public interface BlogTypeDao {
 	 * @return
 	 */
 	public Integer updateBlogType(BlogTypeEntity entity);
+	/**
+	 * 根据Id删除BlogType
+	 * @param id
+	 * @return
+	 */
+	public Integer deleteBlogType(Integer id);
 }

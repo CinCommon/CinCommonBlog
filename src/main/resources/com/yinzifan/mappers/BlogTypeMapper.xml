@@ -13,7 +13,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</resultMap>
 	<select id="countCate" resultMap="BlogTypeResult">
 		SELECT
-		bt.id, bt.typeName ,COUNT(bi.id) AS blogCounts
+		bt.id, bt.typeName
+		,COUNT(bi.id) AS blogCounts
 		FROM
 		t_bloginfo bi
 		RIGHT JOIN
@@ -33,26 +34,27 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<select id="queryPageBlogType" parameterType="Map" resultMap="BlogTypeResult">
-		 select * from t_blogtype order by id asc
-		 <where>
-		 	<if test="id != null">
-		 		and id=#{id}
-		 	</if>
-		 </where>
+		select * from t_blogtype order by id asc
+		<where>
+			<if test="id != null">
+				and id=#{id}
+			</if>
+		</where>
 		<if test="start!=null and size!=null">
 			limit #{start},#{size}
 		</if>
 	</select>
 
-	<select id="queryPageTotal" parameterType="Map" resultType="Long" >
+	<select id="queryPageTotal" parameterType="Map" resultType="Long">
 		select count(*) from t_blogtype
 	</select>
 
-	<insert id="insertBlogType" parameterType="BlogTypeEntity" >
-		INSERT INTO t_blogtype(typeName, typeOrder) VALUES(#{typeName}, #{typeOrder});
+	<insert id="insertBlogType" parameterType="BlogTypeEntity">
+		INSERT INTO t_blogtype(typeName, typeOrder) VALUES(#{typeName},
+		#{typeOrder});
 	</insert>
-	
-		<update id="updateBlogType" parameterType="BlogTypeEntity">
+
+	<update id="updateBlogType" parameterType="BlogTypeEntity">
 		update t_blogtype
 		<set>
 			<if test="typeName!=null and typeName!=''">
@@ -64,5 +66,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</set>
 		where id=#{id}
 	</update>
-	
+
+	<delete id="deleteBlogType" parameterType="Integer">
+		delete from t_blogtype
+		where id=#{id}
+	</delete>
+
 </mapper> 

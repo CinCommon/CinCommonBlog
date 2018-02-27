@@ -78,7 +78,7 @@ public class BlogTypeAdminController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/updateBlogType")
-	public String save(BlogTypeEntity entity,HttpServletResponse response)throws Exception{
+	public void updateBlogType(BlogTypeEntity entity,HttpServletResponse response)throws Exception{
 		int resultTotal=0; 
 		resultTotal=blogTypeService.updateBlogType(entity);
 		JSONObject result=new JSONObject();
@@ -88,30 +88,28 @@ public class BlogTypeAdminController {
 			result.put("success", false);
 		}
 		ResponseUtil.write(response, result);
-		return null;
 	}
 	
-//	/**
-//	 * 博客类别信息删除
-//	 * @param ids
-//	 * @param response
-//	 * @return
-//	 * @throws Exception
-//	 */
-//	@RequestMapping("/delete")
-//	public String delete(@RequestParam(value="ids",required=false)String ids,HttpServletResponse response)throws Exception{
-//		String []idsStr=ids.split(",");
-//		JSONObject result=new JSONObject();
-//		for(int i=0;i<idsStr.length;i++){
-//			if(blogInfoService.getBlogByTypeId(Integer.parseInt(idsStr[i]))>0){
-//				result.put("exist", "博客类别下有博客，不能删除！");
-//			}else{
-//				blogTypeService.delete(Integer.parseInt(idsStr[i]));				
-//			}
-//		}
-//		result.put("success", true);
-//		ResponseUtil.write(response, result);
-//		return null;
-//	}
-//	
+	/**
+	 * 博客类别信息删除
+	 * @param ids
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/deleteBlogType")
+	public void deleteBlogType(@RequestParam(value="ids",required=false)String ids,HttpServletResponse response)throws Exception{
+		String []idsStr=ids.split(",");
+		JSONObject result=new JSONObject();
+		for(int i=0;i<idsStr.length;i++){
+			if(blogInfoService.queryBlogInfoByTypeId(Integer.parseInt(idsStr[i]))>0){
+				result.put("exist", true);
+			}else{
+				blogTypeService.deleteBlogType(Integer.parseInt(idsStr[i]));				
+			}
+		}
+		result.put("success", true);
+		ResponseUtil.write(response, result);
+	}
+	
 }
