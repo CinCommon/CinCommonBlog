@@ -13,8 +13,10 @@
 window.onload = function () {
 	$('#dg').datagrid({
 		onClickRow: function(rowIndex, rowData){
-			$.messager.alert('Warning', rowIndex);
-			$.messager.alert('Warning', rowData);
+			$.messager.alert('Warning', rowData.linkUrl);
+			$.messager.alert('Warning', rowData.linkOrder);
+			$.messager.alert('Warning', rowData.id);
+			$.messager.alert('Warning', rowData.linkName);
 	    }
 	});
 }
@@ -37,5 +39,18 @@ window.onload = function () {
     </tr>
   </thead>
 </table>
+
+<div id="dlg" class="easyui-dialog" style="width: 500px;height: 180px;padding: 10px 20px" closed="true" buttons="#dlg-buttons">
+	<form id="fm" method="post">
+		<p>链接名 <input type="text" class="easyui-validatebox" id="" name=""></p>
+		<p>链接地址<input type="text" class="easyui-validatebox" id="" name=""></p>
+		<p>排列序号<input type="text" class="easyui-validatebox" id="" name=""></p>
+	</form>
+</div>
+
+<div id="save" class="easyui-window" style="width:300px;height:180px;">
+	<form style="padding:10px 20px 10px 40px;" method="get" action="${pageContext.request.contextPath}/admin/link/saveLink.do">
+	</form>
+</div>
 </body>
 </html>
