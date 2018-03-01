@@ -138,12 +138,12 @@
 		</div>
 	</div>
 	<div region="south" style="height: 25px; padding: 5px" align="center">
-		<div align="center" style="padding-top: 120px">
+		<!-- <div align="center" style="padding-top: 120px"> -->
 			<span style="float: left;">Powered by <a
 				href="${pageContext.servletContext.contextPath }/index.html"
 				target="_blank">CinCommon</a> V0.1
 			</span> Copyright © CinCommon
-		</div>
+		<!-- </div> -->
 	</div>
 </body>
 </html>

@@ -11,5 +11,11 @@ import com.yinzifan.entity.LinkEntity;
 */	
 public interface LinkService {
 	public List<LinkEntity> query(Map<String, Object> map);
-	
+	   /**
+     * 查询所有友情链接的条数
+     * Title: queryPageTotal
+     * description:
+     * @return
+     */
+    public Integer queryPageTotal();
 }

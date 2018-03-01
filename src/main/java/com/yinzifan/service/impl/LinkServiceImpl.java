@@ -22,5 +22,13 @@ public class LinkServiceImpl implements LinkService{
 	public List<LinkEntity> query(Map<String, Object> map) {
 		return linkDao.query(map);
 	}
-	
+	   /**
+     * 查询所有友情链接的条数
+     * Title: queryPageTotal
+     * description:
+     * @return
+     */
+    public Integer queryPageTotal() {
+        return linkDao.queryPageTotal();
+    }
 }
