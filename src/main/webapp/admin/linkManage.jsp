@@ -28,7 +28,7 @@
 
 			},
 			success : function(data) {
-// 				alert(data)
+				// 				alert(data)
 			}
 		});
 	}
@@ -50,7 +50,7 @@
 	<table id="dg" title="友情链接管理" class="easyui-datagrid" fitColumns="true"
 		pagination="true"
 		url="${pageContext.request.contextPath}/admin/link/queryPageLinks.do"
-		fit="true" toolbar="#tb">
+		fit="true" toolbar="#tb" checkOnSelect="false">
 		<thead>
 			<tr>
 				<th field="cb" checkbox="true" align="center"></th>
@@ -63,31 +63,25 @@
 	</table>
 
 	<div id="dlg" class="easyui-dialog"
-		style="text-align:'center'; width: 500px; height: 180px; padding: 10px 20px" closed="true"
-		buttons="#dlg-buttons">
+		style="text-align: center; width: 500px; height: 180px; padding: 10px 20px"
+		closed="true" buttons="#dlg-buttons">
 		<form id="fm" method="post">
 			<table>
 				<tr>
-					<td>链接名
-					<td>
-					<td><input type="text" class="easyui-validatebox"
-						id="linkName" name="linkName" data-options="required:true">
-					<td>
+					<td style="text-align: right;">链接名:</td>
+					<td style="width: 150px;"><input type="text" class="easyui-validatebox"
+						id="linkName" name="linkName" data-options="required:true"></td>
 				</tr>
 				<tr>
-					<td>链接地址
-					<td>
-					<td><input type="text" class="easyui-validatebox" id="linkUrl"
-						name="linkUrl" data-options="required:true,validType:'url'">
-					<td>
+					<td style="text-align: right;">链接地址:</td>
+					<td style="width: 150px;"><input type="text" class="easyui-validatebox" id="linkUrl"
+						name="linkUrl" data-options="required:true,validType:'url'"></td>
 				</tr>
 				<tr>
-					<td>排列序号
-					<td>
-					<td><input type="text" class="easyui-validatebox"
+					<td style="text-align: right;">排列序号:</td>
+					<td style="width: 150px;"><input type="text" class="easyui-validatebox"
 						id="linkOrder" name="linkOrder"
-						data-options="required:true,validType:'number'">
-					<td>
+						data-options="required:true,validType:'number'"></td>
 				</tr>
 			</table>
 		</form>
