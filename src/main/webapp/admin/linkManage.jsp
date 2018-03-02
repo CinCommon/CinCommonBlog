@@ -40,7 +40,7 @@ window.onload = function () {
   </thead>
 </table>
 
-<div id="dlg" class="easyui-dialog" style="width: 500px;height: 180px;padding: 10px 20px" closed="true" buttons="#dlg-buttons">
+<div id="dlg" class="easyui-dialog" style="width: 500px;height: 180px;padding: 10px 20px" closed="true" buttons="#dlg-buttons" toolbar="#tb">
 	<form id="fm" method="post">
 		<p>链接名 <input type="text" class="easyui-validatebox" id="" name=""></p>
 		<p>链接地址<input type="text" class="easyui-validatebox" id="" name=""></p>
@@ -51,6 +51,10 @@ window.onload = function () {
 <div id="save" class="easyui-window" style="width:300px;height:180px;">
 	<form style="padding:10px 20px 10px 40px;" method="get" action="${pageContext.request.contextPath}/admin/link/saveLink.do">
 	</form>
+</div>
+<div>
+	<a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-edit',plain:true"/>
+<a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-help',plain:true"/>
 </div>
 </body>
 </html>
