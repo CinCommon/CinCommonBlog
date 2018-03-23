@@ -23,16 +23,23 @@
 			}
 		});
 		$('#fm').form('submit', {
-			url : "${pageContext.request.contextPath}",
-			onSubmit : function() {
-
+			url : "${pageContext.request.contextPath}/admin/link/update",
+			onSubmit : function(params) {
+			    console.log(params)
 			},
 			success : function(data) {
-				// 				alert(data)
+				// 	alert(data)
 			}
 		});
 	}
-
+	function createLink() {
+		
+	}
+	
+	function deleteLink() {
+		
+	}
+	
 	function close() {
 		$("#dlg").dialog("close");
 		resetValue();
@@ -69,32 +76,32 @@
 			<table>
 				<tr>
 					<td style="text-align: right;">链接名:</td>
-					<td style="width: 150px;"><input type="text" class="easyui-validatebox"
-						id="linkName" name="linkName" data-options="required:true"></td>
+					<td style="width: 150px;"><input type="text"
+						class="easyui-validatebox" id="linkName" name="linkName"
+						data-options="required:true"></td>
 				</tr>
 				<tr>
 					<td style="text-align: right;">链接地址:</td>
-					<td style="width: 150px;"><input type="text" class="easyui-validatebox" id="linkUrl"
-						name="linkUrl" data-options="required:true,validType:'url'"></td>
+					<td style="width: 150px;"><input type="text"
+						class="easyui-validatebox" id="linkUrl" name="linkUrl"
+						data-options="required:true,validType:'url'"></td>
 				</tr>
 				<tr>
 					<td style="text-align: right;">排列序号:</td>
-					<td style="width: 150px;"><input type="text" class="easyui-validatebox"
-						id="linkOrder" name="linkOrder"
+					<td style="width: 150px;"><input type="text"
+						class="easyui-validatebox" id="linkOrder" name="linkOrder"
 						data-options="required:true,validType:'number'"></td>
 				</tr>
 			</table>
 		</form>
 	</div>
 	<div id="dlg-buttons">
-		<a href="javascript:save()" class="easyui-linkbutton"
-			iconCls="icon-ok">保存</a> <a href="javascript:close()"
-			class="easyui-linkbutton" iconCls="icon-cancel">关闭</a>
+		<a href="javascript:void(0)" onclick="$('#fm').submit()" class="easyui-linkbutton" iconCls="icon-ok">保存</a>
+	    <a href="javascript:close()" class="easyui-linkbutton" iconCls="icon-cancel">关闭</a>
 	</div>
-
-<div>
-	<a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-edit',plain:true"/>
-<a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-help',plain:true"/>
-</div>
+	<div id="tb">
+		<a href="javascript:updateLink()" class="easyui-linkbutton" plain=true iconCls="icon-add">新建</a>
+	    <a href="javascript:deleteLink()" class="easyui-linkbutton" plain=true iconCls="icon-cancel">删除</a>		
+	</div>
 </body>
 </html>

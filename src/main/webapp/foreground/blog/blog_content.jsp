@@ -53,10 +53,10 @@
 			<br />
 		</div>
 		<div class="datas blog-content">
-			${blogDetails.content } <br />
+			${blogDetails.content }
 		</div>
 		<div>
-			关键字: ${blogDetails.keyword } <br />
+			关键字: ${blogDetails.keyword }
 		</div>
 
 		<hr style="border: 1px dotted #00f" />
