@@ -24,16 +24,20 @@
 		});
 		$('#fm').form('submit', {
 			url : "${pageContext.request.contextPath}/admin/link/update",
-			onSubmit : function(params) {
-			    console.log(params)
+			onSubmit : function() {
+			    return $(this).form("validate");
 			},
 			success : function(data) {
 				// 	alert(data)
 			}
 		});
 	}
+	
 	function createLink() {
-		
+		$("#dlg").dialog("open").dialog("setTitle", "修改友情链接");
+	}
+	
+	function save(){
 	}
 	
 	function deleteLink() {
@@ -70,7 +74,7 @@
 	</table>
 
 	<div id="dlg" class="easyui-dialog"
-		style="text-align: center; width: 500px; height: 180px; padding: 10px 20px"
+		style="text-align: center; width: 500px; padding: 10px 20px"
 		closed="true" buttons="#dlg-buttons" toolbar="#tb">
 		<form id="fm" method="post">
 			<table>
@@ -96,11 +100,11 @@
 		</form>
 	</div>
 	<div id="dlg-buttons">
-		<a href="javascript:void(0)" onclick="$('#fm').submit()" class="easyui-linkbutton" iconCls="icon-ok">保存</a>
+		<a href="javascript:save()" class="easyui-linkbutton" iconCls="icon-ok">保存</a>
 	    <a href="javascript:close()" class="easyui-linkbutton" iconCls="icon-cancel">关闭</a>
 	</div>
 	<div id="tb">
-		<a href="javascript:updateLink()" class="easyui-linkbutton" plain=true iconCls="icon-add">新建</a>
+		<a href="javascript:createLink()" class="easyui-linkbutton" plain=true iconCls="icon-add">新建</a>
 	    <a href="javascript:deleteLink()" class="easyui-linkbutton" plain=true iconCls="icon-cancel">删除</a>		
 	</div>
 </body>

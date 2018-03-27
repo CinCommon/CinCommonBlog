@@ -124,10 +124,11 @@
 			</div>
 			<div title="系统管理" data-options="iconCls:'icon-system'"
 				style="padding: 10px">
-<!-- 				<a HREF="JAVASCRIPT:OPENPASSWORDMODIFYDIALOG()"
-					CLASS="EASYUI-LINKBUTTON"
-					DATA-OPTIONS="PLAIN:TRUE,ICONCLS:'ICON-MODIFYPASSWORD'"
 					style="width: 150px;">修改密码</a>  -->
+					<a href="javascript:userManage()"
+					class="easyui-linkbutton"
+					data-options="plain:true,iconCls:'icon-man'"
+					style="width: 150px;">博主管理</a>
 					<a href="javascript:refreshSystem()"
 					class="easyui-linkbutton"
 					data-options="plain:true,iconCls:'icon-refresh'"
