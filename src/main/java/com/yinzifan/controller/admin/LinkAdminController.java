@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.alibaba.fastjson.JSONObject;
@@ -43,5 +44,12 @@ public class LinkAdminController {
         json.put("rows", lists);
         json.put("total", linkService.queryPageTotal());
         ResponseUtil.write(resp, json);
+    }
+
+    @RequestMapping(value="/update", method=RequestMethod.POST)
+    public void update(LinkEntity link, HttpServletResponse resp) throws IOException {
+        LOGGER.debug("LinkAdminController.update()");
+        
+        
     }
 }
