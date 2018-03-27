@@ -24,4 +24,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	   SELECT COUNT(*) FROM t_link
 	</select>
 	
+	<insert id="insertLink" parameterType="LinkEntity">
+		INSERT INTO t_link(linkName, linkUrl, linkOrder) VALUES(#{linkName},
+		#{linkUrl}, #{linkOrder});
+	</insert>
+
+	<update id="updateLink" parameterType="LinkEntity">
+		update t_link
+		<set>
+			<if test="linkName!=null and linkName!=''">
+				linkName=#{linkName},
+			</if>
+			<if test="linkUrl!=null and linkUrl!=''">
+				linkUrl=#{linkUrl},
+			</if>
+			<if test="linkOrder != null">
+				linkOrder=#{linkOrder},
+			</if>
+		</set>
+		where id=#{id}
+	</update>
+	
 </mapper> 

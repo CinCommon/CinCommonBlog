@@ -19,4 +19,16 @@ public interface LinkDao {
 	 * @return
 	 */
 	public Integer queryPageTotal();
+	
+	/**
+	 * @param map
+	 * @return
+	 */
+	public Integer updateLink(LinkEntity linkEntity);
+	
+	/**
+	 * @param map
+	 * @return
+	 */
+	public Integer insertLink(LinkEntity linkEntity);
 }

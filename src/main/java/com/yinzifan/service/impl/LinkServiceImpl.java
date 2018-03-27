@@ -31,4 +31,13 @@ public class LinkServiceImpl implements LinkService{
     public Integer queryPageTotal() {
         return linkDao.queryPageTotal();
     }
+	@Override
+	public Integer updateLink(LinkEntity linkEntity) {
+		
+		return linkDao.updateLink(linkEntity);
+	}
+	@Override
+	public Integer insertLink(LinkEntity linkEntity) {
+		return linkDao.insertLink(linkEntity);
+	}
 }

@@ -124,7 +124,6 @@
 			</div>
 			<div title="系统管理" data-options="iconCls:'icon-system'"
 				style="padding: 10px">
-					style="width: 150px;">修改密码</a>  -->
 					<a href="javascript:userManage()"
 					class="easyui-linkbutton"
 					data-options="plain:true,iconCls:'icon-man'"

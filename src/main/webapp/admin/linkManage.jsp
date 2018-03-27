@@ -18,26 +18,32 @@
 	window.onload = function() {
 		$('#dg').datagrid({
 			onClickRow : function(rowIndex, rowData) {
+				url = "${pageContext.request.contextPath}/admin/link/update.do" + "?id="+rowData.id,
 				$("#dlg").dialog("open").dialog("setTitle", "修改友情链接");
 				$("#fm").form("load", rowData);
 			}
 		});
-		$('#fm').form('submit', {
-			url : "${pageContext.request.contextPath}/admin/link/update",
-			onSubmit : function() {
-			    return $(this).form("validate");
-			},
-			success : function(data) {
-				// 	alert(data)
-			}
-		});
 	}
 	
+	var url;
 	function createLink() {
 		$("#dlg").dialog("open").dialog("setTitle", "修改友情链接");
+		url = "${pageContext.request.contextPath}/admin/link/save.do";
 	}
 	
 	function save(){
+		$('#fm').form('submit', {
+			url: url, 
+			onSubmit: function() {
+				return $(this).form("validate");			
+			},
+			success: function (data) {
+				$.messager.alert("系统提示", "保存成功!");
+				resetValue();			
+				$("#dlg").dialog("close");
+				$("#dg").datagrid("reload");
+			}
+		});
 	}
 	
 	function deleteLink() {

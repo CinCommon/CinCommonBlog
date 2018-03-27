@@ -47,9 +47,17 @@ public class LinkAdminController {
     }
 
     @RequestMapping(value="/update", method=RequestMethod.POST)
-    public void update(LinkEntity link, HttpServletResponse resp) throws IOException {
+    public void update(LinkEntity linkEntity, HttpServletResponse resp, @RequestParam(value="id", required= false) Integer id ) throws IOException {
         LOGGER.debug("LinkAdminController.update()");
-        
-        
+        linkService.updateLink(linkEntity);
+        JSONObject json = new JSONObject();
+        json.put("success", true);
+    }
+    @RequestMapping(value="/save", method=RequestMethod.POST)
+    public void save(LinkEntity linkEntity, HttpServletResponse resp) throws IOException {
+    	LOGGER.debug("LinkAdminController.save()");
+    	linkService.insertLink(linkEntity);
+    	JSONObject json = new JSONObject();
+    	json.put("success", true);
     }
 }
