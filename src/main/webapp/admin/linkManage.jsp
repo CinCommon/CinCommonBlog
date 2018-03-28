@@ -65,7 +65,7 @@
 				console.log("success: jqXHR= ", jqXHR);
 				if(data.success) {
 					$.messager.alert("系统提示","result: "+data.message);
-					$("fm").form("reload");
+					$("#dg").datagrid("reload");
 				} else {
 					$.messager.alert("系统提示","系统错误!");
 				}

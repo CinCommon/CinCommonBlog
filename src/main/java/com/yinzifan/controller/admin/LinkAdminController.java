@@ -50,26 +50,26 @@ public class LinkAdminController {
     }
 
     @RequestMapping(value="/update", method=RequestMethod.POST)
-    public JSONObject update(LinkEntity linkEntity, HttpServletResponse resp, @RequestParam(value="id", required= false) Integer id ) throws IOException {
+    public void update(LinkEntity linkEntity, HttpServletResponse resp, @RequestParam(value="id", required= false) Integer id ) throws IOException {
         LOGGER.debug("LinkAdminController.update()");
         linkService.updateLink(linkEntity);
         JSONObject json = new JSONObject();
         json.put("success", true);
-        return json;
+        ResponseUtil.write(resp, json);
     }
     @RequestMapping(value="/save", method=RequestMethod.POST)
-    public JSONObject save(LinkEntity linkEntity, HttpServletResponse resp) throws IOException {
+    public void save(LinkEntity linkEntity, HttpServletResponse resp) throws IOException {
     	LOGGER.debug("LinkAdminController.save()");
     	linkService.insertLink(linkEntity);
     	JSONObject json = new JSONObject();
     	json.put("success", true);
-        return json;
+    	ResponseUtil.write(resp, json);
     }
     
     
     @RequestMapping(value="/delete", method=RequestMethod.POST)
     @Transactional
-    public JSONObject delete(@RequestParam(value = "ids") String ids, HttpServletResponse resp) throws IOException {
+    public void delete(@RequestParam(value = "ids") String ids, HttpServletResponse resp) throws IOException {
     	LOGGER.debug("LinkAdminController.delete()");
     	LOGGER.debug("LinkAdminController.delete()", ids);
     	String[] idArr = ids.split(",");
@@ -86,6 +86,6 @@ public class LinkAdminController {
     	JSONObject json = new JSONObject();
     	json.put("success", true);
     	json.put("message", sb.toString());
-        return json;
+    	ResponseUtil.write(resp, json);
     }
 }
