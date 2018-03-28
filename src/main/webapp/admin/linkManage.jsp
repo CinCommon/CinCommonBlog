@@ -56,6 +56,17 @@
 		for(var i=0;i<selectedRows.length;i++){
 			strIds.push(selectedRows[i].id);
 		}
+		$.post(
+			"${pageContext.request.contextPath}/admin/link/delete.do",
+			{deleteRows: strIds.join(",")},
+			function(data, textStatus, jqXHR) {
+				console.log("success: data= ", data);
+				console.log("success: textStatus= ", textStatus);
+				console.log("success: jqXHR= ", jqXHR);
+			},
+			"json"
+		)
+		
 		
 	}
 	

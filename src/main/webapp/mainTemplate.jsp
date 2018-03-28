@@ -30,6 +30,7 @@ body {
 		<div class="row">
 			<jsp:include page="${mainPage }" />
 			<div class="col-md-3">
+				<script src='//w.segmentfault.com/card/1030000011237262.js?w=0&3rd=1&bg=FFFFFF&bd=DDDDDD&cl=333333&btn=009a61&noBtn=0'></script>
 				<div class="data_list">
 					<div class="data_list_title">
 						<span class="glyphicon glyphicon-tag" style="margin: 2px"></span>
@@ -71,7 +72,6 @@ body {
 						</ul>
 					</div>
 				</div>
-
 			</div>
 		</div>
 		<jsp:include page="foreground/common/foot.jsp" />

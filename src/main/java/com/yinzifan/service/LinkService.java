@@ -29,4 +29,10 @@ public interface LinkService {
 	 * @return
 	 */
 	public Integer insertLink(LinkEntity linkEntity);
+	
+	/**
+	 * @param id
+	 * @return
+	 */
+	public Integer deleteLink(Integer id);
 }

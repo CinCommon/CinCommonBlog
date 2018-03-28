@@ -45,4 +45,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where id=#{id}
 	</update>
 	
+		<delete id="deleteLink" parameterType="Integer">
+		delete from t_link
+		where id=#{id}
+	</delete>
+	
 </mapper> 

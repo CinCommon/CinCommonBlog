@@ -40,4 +40,8 @@ public class LinkServiceImpl implements LinkService{
 	public Integer insertLink(LinkEntity linkEntity) {
 		return linkDao.insertLink(linkEntity);
 	}
+	@Override
+	public Integer deleteLink(Integer id) {
+		return linkDao.deleteLink(id);
+	}
 }

@@ -10,7 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -47,17 +50,42 @@ public class LinkAdminController {
     }
 
     @RequestMapping(value="/update", method=RequestMethod.POST)
-    public void update(LinkEntity linkEntity, HttpServletResponse resp, @RequestParam(value="id", required= false) Integer id ) throws IOException {
+    public JSONObject update(LinkEntity linkEntity, HttpServletResponse resp, @RequestParam(value="id", required= false) Integer id ) throws IOException {
         LOGGER.debug("LinkAdminController.update()");
         linkService.updateLink(linkEntity);
         JSONObject json = new JSONObject();
         json.put("success", true);
+        return json;
     }
     @RequestMapping(value="/save", method=RequestMethod.POST)
-    public void save(LinkEntity linkEntity, HttpServletResponse resp) throws IOException {
+    public JSONObject save(LinkEntity linkEntity, HttpServletResponse resp) throws IOException {
     	LOGGER.debug("LinkAdminController.save()");
     	linkService.insertLink(linkEntity);
     	JSONObject json = new JSONObject();
     	json.put("success", true);
+        return json;
+    }
+    
+    
+    @RequestMapping(value="/delete", method=RequestMethod.POST,produces=MediaType.APPLICATION_FORM_URLENCODED_VALUE, consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+    @Transactional
+    public JSONObject delete(@RequestBody String ids, HttpServletResponse resp) throws IOException {
+    	LOGGER.debug("LinkAdminController.delete()");
+    	LOGGER.debug("LinkAdminController.delete()", ids);
+    	String[] idArr = ids.split(",");
+    	StringBuffer sb = new StringBuffer();
+    	for (String string : idArr) {
+    		Integer id = Integer.valueOf(string);
+			Integer column = linkService.deleteLink(id);
+			if(column == 0) {
+				sb.append("link delete failure! id = "+ id);
+			} else {
+				sb.append("link delete success! id = "+ id);
+			}
+		}
+    	JSONObject json = new JSONObject();
+    	json.put("success", true);
+    	json.put("message", sb.toString());
+        return json;
     }
 }
