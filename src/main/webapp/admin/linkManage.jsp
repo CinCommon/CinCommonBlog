@@ -58,11 +58,17 @@
 		}
 		$.post(
 			"${pageContext.request.contextPath}/admin/link/delete.do",
-			{deleteRows: strIds.join(",")},
+			{ids: strIds.join(",")},
 			function(data, textStatus, jqXHR) {
 				console.log("success: data= ", data);
 				console.log("success: textStatus= ", textStatus);
 				console.log("success: jqXHR= ", jqXHR);
+				if(data.success) {
+					$.messager.alert("系统提示","result: "+data.message);
+					$("fm").form("reload");
+				} else {
+					$.messager.alert("系统提示","系统错误!");
+				}
 			},
 			"json"
 		)

@@ -67,9 +67,9 @@ public class LinkAdminController {
     }
     
     
-    @RequestMapping(value="/delete", method=RequestMethod.POST,produces=MediaType.APPLICATION_FORM_URLENCODED_VALUE, consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+    @RequestMapping(value="/delete", method=RequestMethod.POST)
     @Transactional
-    public JSONObject delete(@RequestBody String ids, HttpServletResponse resp) throws IOException {
+    public JSONObject delete(@RequestParam(value = "ids") String ids, HttpServletResponse resp) throws IOException {
     	LOGGER.debug("LinkAdminController.delete()");
     	LOGGER.debug("LinkAdminController.delete()", ids);
     	String[] idArr = ids.split(",");
@@ -78,9 +78,9 @@ public class LinkAdminController {
     		Integer id = Integer.valueOf(string);
 			Integer column = linkService.deleteLink(id);
 			if(column == 0) {
-				sb.append("link delete failure! id = "+ id);
+				sb.append("link delete failure! id = "+ id+"!\n");
 			} else {
-				sb.append("link delete success! id = "+ id);
+				sb.append("link delete success! id = "+ id+"!\n");
 			}
 		}
     	JSONObject json = new JSONObject();
