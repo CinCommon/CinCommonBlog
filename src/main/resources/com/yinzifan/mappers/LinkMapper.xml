@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinzifan.dao.LinkDao">
+	<resultMap type="LinkEntity" id="LinkResult">
+		<result property="id" column="id" />
+		<result property="linkName" column="linkName" />
+		<result property="linkUrl" column="linkUrl" />
+		<result property="linkOrder" column="linkOrder" />
+	</resultMap>
+	<select id="query" parameterType="Map" resultMap="LinkResult">
+		SELECT * FROM t_link ORDER BY id
+		<where>
+			<if test="id != null">
+				and id=#{id}
+			</if>
+		</where>
+		<if test="start!=null and size!=null">
+			limit #{start},#{size}
+		</if>
+	</select>
+	<select id="queryPageTotal" resultType="Integer">
+	   SELECT COUNT(*) FROM t_link
+	</select>
+	
+	<insert id="insertLink" parameterType="LinkEntity">
+		INSERT INTO t_link(linkName, linkUrl, linkOrder) VALUES(#{linkName},
+		#{linkUrl}, #{linkOrder});
+	</insert>
+
+	<update id="updateLink" parameterType="LinkEntity">
+		update t_link
+		<set>
+			<if test="linkName!=null and linkName!=''">
+				linkName=#{linkName},
+			</if>
+			<if test="linkUrl!=null and linkUrl!=''">
+				linkUrl=#{linkUrl},
+			</if>
+			<if test="linkOrder != null">
+				linkOrder=#{linkOrder},
+			</if>
+		</set>
+		where id=#{id}
+	</update>
+	
+		<delete id="deleteLink" parameterType="Integer">
+		delete from t_link
+		where id=#{id}
+	</delete>
+	
+</mapper> 
